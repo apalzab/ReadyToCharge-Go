@@ -1,0 +1,94 @@
+
+.footer a {
+color:white;
+}
+
+
+
+.footer  {
+color:white;
+}
+
+
+
+/*Inicio */
+.tituloCentrado  {
+
+margin-top: 55px;
+margin-bottom: 35px;
+font-size: 55px;
+text-align:center;
+}
+
+.inicioFilas {
+margin-left: 85px;
+}
+
+
+.cursorPointer{
+ cursor:pointer;
+}
+
+.informationRows{
+margin-left: 85px;
+
+
+}
+
+.mapRow{
+	margin-left: 90px;
+}
+
+
+
+
+
+
+.bookingTableInfo {
+margin-left: 40px;
+font-size: 15px;
+line-height:25px;
+/*margin-top: 150px;*/
+}
+
+ ul{
+ list-style: none;
+}
+
+
+
+/*ATRIBUTOS DE LAS CLASES*/
+
+/* color del borde de las imágenes*/
+a.thumbnail:hover {
+	 border-color: #000000;
+	}
+
+
+
+
+
+
+
+.progress-striped .bar {
+
+	background-color: #181818;
+
+}
+
+
+
+
+
+#progressBar{
+	margin-top: 70px;
+
+	
+}
+
+.descriptionsTable td{
+	text-align: left;
+}
+
+
+
