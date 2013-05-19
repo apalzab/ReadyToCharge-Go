@@ -2,35 +2,53 @@
 	<servlet>
         <servlet-name>Jersey Web Application</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
             <param-value>rest.App</param-value>
         </init-param>
+        
         <init-param>
              <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
            <param-value>true</param-value>
         </init-param>
+        
          <load-on-startup>1</load-on-startup>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
+    
+    
+    <filter>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>com.readytochargeandgo.utilities.SecurityFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/app/*</url-pattern>
+</filter-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
- <servlet>
-  <servlet-name>SystemServiceServlet</servlet-name>
-  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
-  <init-param>
-   <param-name>services</param-name>
-   <param-value/>
-  </init-param>
+    
+	<servlet>     
+	  <servlet-name>SystemServiceServlet</servlet-name>
+	  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+	  <init-param>
+	   <param-name>services</param-name>
+	   <param-value/>
+	  </init-param>
  </servlet>
  <servlet-mapping>
-  <servlet-name>SystemServiceServlet</servlet-name>
-  <url-pattern>/_ah/spi/*</url-pattern>
+	  <servlet-name>SystemServiceServlet</servlet-name>
+	  <url-pattern>/_ah/spi/*</url-pattern>
  </servlet-mapping>
 </web-app>
