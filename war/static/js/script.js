@@ -1,6 +1,24 @@
 $(document).ready(function(){
 
-$('button.login').click(loginUser);
+if ($.cookie('ReadyToChargeAndGo') != null)
+  {
+    var str = $.cookie('ReadyToChargeAndGo');
+    var ret = str.split(':');
+    var id = ret[0];
+    var pass = ret[1];
+    $('form.login input.username').hide();
+    $('form.login input[type="password"]').hide();
+    loginUser(id, pass);
+  }
+
+
+$('button.login').click(function(e){
+  e.preventDefault();
+  user = $('form.login input.username').val();
+  pass = $('form.login input[type="password"]').val();
+  pass = $.md5(pass);
+  loginUser(user, pass);
+});
 
 $('li.newUser').click(newUserModalShow);
 
@@ -8,26 +26,27 @@ $('div.start img.socketImg').click(readyToCharge);
 
 $('div.start img.carImg').click(constructingModalShow);
 
-    function loginUser(){
-      var user = $('form.login input.username').val();
-      var pass = $('form.login input[type="password"]').val();
-      pass = $.md5(pass);
-      //var form = $('form.login').serialize();
-      //console.log(form);
-      if (user=="" || pass=="")
+    function loginUser(user,pass){
+      if (user==="" || pass==="")
         $('div.modal.userError').modal("show");
       else
         {
-        $.ajax({
-            url: '/app/Users/' + user + '/' + pass,
-            type: 'GET',
-            success: function (data) {
-              $('form.login input.username').addClass("hide");
-              $('form.login input[type="password"]').addClass("hide");
-              $('form.login button.login').removeClass("login");
-              $('form.login button').addClass("userInfo");
-              $('form.login button.userInfo').text("@"+data.userName);              
-            }
+          var tok = user + ':' + pass;
+          var hash = btoa(tok);
+          $.cookie.raw = true;
+          $.cookie('ReadyToChargeAndGo', tok, { expires: 7 });
+          $.ajax({
+              //headers: {'Authorization': "Basic " +  hash},
+              url: '/app/Users/',
+              type: 'GET',
+              success: function (data) {
+                $('form.login input.username').addClass("hide");
+                $('form.login input[type="password"]').addClass("hide");
+                $('form.login button.login').removeClass("login");
+                $('form.login button').addClass("userInfo");
+                $('#newUser').hide();
+                $('form.login button.userInfo').text("@"+data.userName);
+                }
           });
         }
       return false;
@@ -74,5 +93,5 @@ $('div.start img.carImg').click(constructingModalShow);
             $('form.newUser')[0].reset();
           }
         });
- 
+
       }

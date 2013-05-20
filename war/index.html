@@ -8,7 +8,7 @@
     <!--—[if lt IE 9]-->
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
     <!--[endif]—-->   
-    <link rel="shortcut icon" type="image/x-icon" href="/readyToChargeIcon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/chargeimg.png">
 
     <!-- CSS dependencies-->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,30 +30,25 @@
   <nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
       <nav class="container">
-        <a id="btnHome" class="cursorPointer brand">ReadyToCharge&amp;Go</a>
+        <a id="btnHome" class="cursorPointer brand" href="/">ReadyToCharge&amp;Go</a>
         <nav class="nav-collapse collapse">
           <ul id="navRef" class="nav">
-            <li class="cursorPointer newUser"><a>¿Nuevo Usuario?</a></li>
+            <li id="newUser" class="cursorPointer newUser"><a>¿Nuevo Usuario?</a></li>
             <li class="cursorPointer hide"><a>Mis Reservas</a></li>
           </ul>
         </nav>
         <nav class='user'>
           <form class='navbar-form pull-right login'>
-            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus>
+            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus >
             <input type="password" class="span2" placeholder='contraseña' name="userPass">
             <button class='btn login'>Iniciar Sesion</button>
           </form> 
-        <!--   <script>
-         $('form.login').addClass('hide');
-                  $('hide dropbd').show();
-                  $('nav.user a.username').text(username).addClass('logged');</script>
-              -->
        </nav> 
       </nav>
     </nav>
     </nav>
 
-    <div  class="container start" style="display :block;"><h1 class="tituloCentrado">ReadyToCharge&Go</h1>
+    <div  class="container index" style="display :block;"><h1 class="tituloCentrado">ReadyToCharge&Go</h1>
       <div class="informationRows">
         <div  class="row">
           <row>
@@ -77,7 +72,7 @@
               <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!
               </p>
               <p>
-                <a id="btnReadyToCharge" class="btn" href="#">Más ReadyToCharge! &raquo;</a>
+                <a id="btnReadyToCharge" class="btn" href="/ReadyToChargeInformation.html">Más ReadyToCharge! &raquo;</a>
               </p>
             </div>
             <div class="span5">
@@ -85,7 +80,7 @@
               <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! 
               </p>
               <p>
-                <a id="btnReadyToGo" class="btn" href="#">Más ReadyToGo! &raquo;</a>
+                <a id="btnReadyToGo" class="btn" href="/ReadyToGoInformation.html">Más ReadyToGo! &raquo;</a>
               </p>
             </div>
           </row>
@@ -228,7 +223,9 @@
 
     <!-- JQuery dependencies-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="static/js/scripts/jquery.md5.js"></script>   
+    <script src="static/js/scripts/jquery.md5.js"></script>
+    <!--jQuery cookie -->
+    <script src="static/js/cookie.js"></script>
     <!--ReadyToCharge&Go script -->
     <script src="static/js/script.js"></script>
     <!-- Bootstrap dependencies-->
