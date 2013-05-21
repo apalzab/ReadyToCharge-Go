@@ -39,18 +39,24 @@
         </nav>
         <nav class='user'>
           <form class='navbar-form pull-right login'>
-            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus>
+            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus >
             <input type="password" class="span2" placeholder='contraseña' name="userPass">
             <button class='btn login'>Iniciar Sesion</button>
+            <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
+            <ul class="dropdown-menu">
+                <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
+                <li class="divider"></li>
+                <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+              </ul>
           </form> 
        </nav> 
       </nav>
     </nav>
-    </nav>
+  </nav>
 
   <!--ReadyToChargeInformation-->
   <div id="ReadyToChargeInformacion" class="container ReadyToChargeInformacion" style="display: block;">
-    <h1 class="tituloCentrado">Hola, ReadyToCharge!</h1>
+    <h1 class="centeredTitle">Hola, ReadyToCharge!</h1>
     <ul>
       <li>
         <p>ReadyToCharge es un sistema de gestión de reservas para coches, motos o bicicletas eléctricas. El sistema permite reservar un espacio de tiempo para poder realiza una recarga de coche, moto o bicicleta en una de las estaciones de carga de la ciudad de Bilbao. Dichas estaciones se encuentran ubicadas en Deusto, Leioa, Sarriko y San Mamés.</p>
@@ -211,7 +217,7 @@
     <!--jQuery cookie -->
     <script src="static/js/cookie.js"></script>
     <!--ReadyToCharge&Go script -->
-    <script src="static/js/script.js"></script>
+    <script src="static/js/login.js"></script>
     <!-- Bootstrap dependencies-->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap-modal.js"></script>

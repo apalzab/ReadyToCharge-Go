@@ -16,6 +16,8 @@
     <!-- Les Styles -->
     <link rel="stylesheet" href="static/css/main.css" type="text/css">
 
+    <link rel="stylesheet" type="text/css" href="static/js/jquery.timepicker/jquery.timepicker.css">
+
     <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
   </head>
 
@@ -54,61 +56,48 @@
     </nav>
   </nav>
 
-  <!--ReadyToGo Information-->
-  <div id="ReadyToGoInformation" class="container" style="display: block;">
-    <h1 class="centeredTitle">Hola, ReadyToGo!</h1>
-    <div>
-      <ul>
-        <li>
-          <p>ReadyToGo es un sistema para la gestión de alquileres de coches, motos y bicicletas eléctricas a corto tiempo.</p>
-        </li>
-        <li>
-          <p>Con corto tiempo queremos decir que los alquileres se realizan para un único día. ¡Un único día! Sí. El objetivo de ReadyToGo no es un sistema de alquileres sino un sistema de compartición de coches, motos y bicicletas eléctricas.</p>
-        </li>
-        <li>
-          <p>¿¡Compartición!? Sí. esos alquileres sean compartidos por usuarios que quieran realizar un trayecto parecido!</p>
-        </li>
-        <li>
-          <p>Todo esto conlleva a una reducción de costes y también aun mejor cuidado del medio ambiente. Únete a ReadyToGo y comienza a disfrutar de las ventajas del e-car leasing &amp; e-car sharing.</p>
-        </li>
-      </ul>
-    </div>
-    <div class="informationRows">
-      <div class="row">
-        <row>
-          <div class="span5">
-            <h2>Reserva el coche que prefieras</h2>
-              <p>A tu medida.</p>
-                <br>
-            <a href="http://readytocharge.appspot.com/#">
-              <img src="static/images/cars.jpg" class="img-rounded" alt="" align="center"></a>
-          </div>
-          <div class="span5">
-            <h2>¡Bienvenido al e-Car pooling!</h2>
-            <p>Comparte tu ruta para que otros puedas verla.</p>
-            <br>
-            <a href="http://readytocharge.appspot.com/#">
-              <img src="static/images/map.png" class="img-rounded" alt="" align="center"></a>
-          </div>
-        </row>
-      </div>
-      <div class="row">
-        <row>
-          <div class="span5">
-            <h2>Ahorra dinero...y recuerda</h2>
-            <p>Cuantos más menos pagarás.</p>
-            <br>
-            <a href="http://readytocharge.appspot.com/#">
-              <img src="static/images/pig.png" class="img-rounded" alt="" align="center"></a>
+   <!--ReadyToCharge-->
+  <div class="container readyToCharge" style="display: block;">
+    <h3 class="well title">¡Bienvenido a ReadyToCharge!</h3>
+    <div class="row">
+      <row>
+        <ol>
+          <li class="well">
+            <p>Selecciona la estación de carga.</p>
+            <select id="station">
+              <option>Deusto</option>
+             <!-- <option>San Mames</option>
+              <option>Leioa</option>
+              <option>Sarriko</option>
+            -->
+            </select>
+          </li>
+          <li class="well">
+            <p>Selecciona la hora aproximada en la que deseas recargar.</p>
+            <div>
+              <input id="timepicker" type="text" class="time ui-timepicker-input" autocomplete="off">
             </div>
-            <div class="span5"><h2>Cuida del medio ambiente</h2>
-              <p>En ReadyToCharge&amp;Go utilizamos energia 100% de origen renovable. Deja ya de sobreexplotar el planeta y únete a nuestra filosofía.</p>
-              <a href="http://readytocharge.appspot.com/#">
-                <img src="static/images/carAndTrees.jpg" class="img-rounded" alt="" align="center"></a>
-              </div>
-        </row>
-      </div>
+          </li>
+          <li class="well"><p>Selecciona el tipo de vehículo eléctrico que quires recargar.</p>
+            <select id="chargeType">
+              <option>moto</option>
+              <option>bicicleta</option>
+              <option>coche</option>
+            </select>
+          </li>
+          <li class="well">
+            <p>
+              <button class=" btn btn-inverse getRtcTimes">Consultar Horarios! »</button>
+            </p>
+          </li>
+        </ol>
+      </row>
     </div>
+  </div>
+
+  <div id="timetables">
+    <table id="timetablestable" class="table title">
+    </table>
   </div>
 
 
@@ -127,7 +116,7 @@
   </div>
 
   <!--new user modal-->
-  <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display:none;">
+  <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
       </button>
@@ -145,7 +134,7 @@
       <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
       <button class="btn btn-success newUser" onclick="postNewUser();">Crear Usuario</button>
     </div>
-  </div>
+</div>
 
   <!--wrong user modal-->
   <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
@@ -180,49 +169,53 @@
     </div>
   </div>
 
-  </div><!--page content-->
+    </div>
 
-  <div id="push"></div>
-</div> <!--wrap-->
+    <div id="push"></div>
+    </div>
 
 <!--footer-->
-    <footer class="footer" style="background-color:#1B1B1B;">
-      <div class="container" style="margin:0 auto;">
-        <div class="row">
-          <div class="span2 offset2">
-            <h4>Compañía</h4>
-            <ul>
-                <li><a href="">¿Quiénes somos?</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-           </div>
-          <div class="span2 offset1">
-            <h4>Más Información</h4>
-              <ul>
-                <li><a href="">Ayuda</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Soporte</a></li>
-              </ul>
-          </div>
-          <div class="span2 offset1">
-              <h4>Síguenos</h4>
-              <ul>                   
-                <li><a href="">Twitter</a></li>
-                <li><a href="">LinkedIn</a></li>
-                <li><a href="">Google+</a></li>                    
-              </ul>
-          </div>
+  <footer class="footer" style="background-color:#1B1B1B;">
+    <div class="container" style="margin:0 auto;">
+      <div class="row">
+        <div class="span2 offset2">
+          <h4>Compañía</h4>
+          <ul>
+              <li><a href="">¿Quiénes somos?</a></li>
+              <li><a href="">Contacto</a></li>
+          </ul>
          </div>
+        <div class="span2 offset1">
+          <h4>Más Información</h4>
+            <ul>
+              <li><a href="">Ayuda</a></li>
+              <li><a href="">FAQ</a></li>
+              <li><a href="">Soporte</a></li>
+            </ul>
+        </div>
+        <div class="span2 offset1">
+            <h4>Síguenos</h4>
+            <ul>
+              <li><a href="">Twitter</a></li>
+              <li><a href="">LinkedIn</a></li>
+              <li><a href="">Google+</a></li>
+            </ul>
+        </div>
        </div>
-    </footer>
+     </div>
+  </footer>
 
     <!-- JQuery dependencies-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="static/js/scripts/jquery.md5.js"></script>
     <!--jQuery cookie -->
     <script src="static/js/cookie.js"></script>
+    <!-- jQuey Timepicker dependencies-->
+    <script type="text/javascript" src="static/js/jquery.timepicker/jquery.timepicker.js"></script>
+    <script type="text/javascript" src="static/js/jquery.timepicker/base.js"></script>   
     <!--ReadyToCharge&Go script -->
     <script src="static/js/login.js"></script>
+    <script src="static/js/rtc.js"></script>
     <!-- Bootstrap dependencies-->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap-modal.js"></script>

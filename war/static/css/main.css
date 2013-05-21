@@ -40,12 +40,6 @@ body {
  cursor:pointer;
 }
 
-.tituloCentrado  {
-margin-top: 55px;
-margin-bottom: 35px;
-font-size: 55px;
-text-align:center;
-}
 
 .informationRows{
 margin-left: 90px;
@@ -63,7 +57,22 @@ color:white;
 color:white;
 }
 
-.index {
+.centeredTitle {
+margin-top: 55px;
+margin-bottom: 35px;
+font-size: 55px;
+text-align:center;
+}
 
+.title {
+  margin-top: 60px;
+}
+
+.progress-striped .bar {
+background-color: #181818;
+}
+
+#progressBar{
+margin-top: 70px;
 }
 

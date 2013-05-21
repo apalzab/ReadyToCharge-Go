@@ -1,17 +1,4 @@
 $(document).ready(function(){
-
-if ($.cookie('ReadyToChargeAndGo') != null)
-  {
-    var str = $.cookie('ReadyToChargeAndGo');
-    var ret = str.split(':');
-    var id = ret[0];
-    var pass = ret[1];
-    $('form.login input.username').hide();
-    $('form.login input[type="password"]').hide();
-    loginUser(id, pass);
-  }
-
-
 $('button.login').click(function(e){
   e.preventDefault();
   user = $('form.login input.username').val();
@@ -22,47 +9,31 @@ $('button.login').click(function(e){
 
 $('li.newUser').click(newUserModalShow);
 
-$('div.start img.socketImg').click(readyToCharge);
-
-$('div.start img.carImg').click(constructingModalShow);
-
-    function loginUser(user,pass){
-      if (user==="" || pass==="")
-        $('div.modal.userError').modal("show");
-      else
-        {
-          var tok = user + ':' + pass;
-          var hash = btoa(tok);
-          $.cookie.raw = true;
-          $.cookie('ReadyToChargeAndGo', tok, { expires: 7 });
-          $.ajax({
-              //headers: {'Authorization': "Basic " +  hash},
-              url: '/app/Users/',
-              type: 'GET',
-              success: function (data) {
-                $('form.login input.username').addClass("hide");
-                $('form.login input[type="password"]').addClass("hide");
-                $('form.login button.login').removeClass("login");
-                $('form.login button').addClass("userInfo");
-                $('#newUser').hide();
-                $('form.login button.userInfo').text("@"+data.userName);
-                }
-          });
-        }
-      return false;
+$('div.index img.socketImg').click(function(e){
+  e.preventDefault();
+  if ($.cookie('ReadyToChargeAndGo') != null)
+    {
+      var url = "/ReadyToCharge.html";
+      $(location).attr('href',url);
     }
+    else
+    {
+      $('div.modal.login').modal('show');
+    }
+});
+
+$('div.index img.carImg').click(function(){
+  $('div.modal.constructing').modal('show');
+});
 
     function newUserModalShow(){
       $('div.newUser').modal('show');
     }
 
-    function readyToCharge(){
-      //verify that the user is loged and if so redirect to ReadyToCharge.html.
-    }
-
     function constructingModalShow(){
       $('div.constructing').modal("show");
     }
+
 
 });
 
