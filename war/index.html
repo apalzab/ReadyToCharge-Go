@@ -39,9 +39,9 @@
         </nav>
         <nav class='user'>
           <form class='navbar-form pull-right login'>
-            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus>
+            <input type="text" class='span2' placeholder='e-mail' name="userId" autofocus>
             <input type="password" class="span2" placeholder='contraseña' name="userPass">
-            <button class='btn login'>Iniciar Sesion</button>
+            <button class='btn login'>Iniciar Sesión</button>
           </form> 
         <!--   <script>
          $('form.login').addClass('hide');
@@ -115,12 +115,12 @@
           <h3 id="myModalLabel">Bienvenido</h3>
         </div>
         <form class="modal-body newUser">
-          <p>Nombre:<input class="span2 userName" type="text" autofocus></p>
-          <p>Apellidos:<input class="span2 userLastName" type="text"></p>
-          <p>e-mail:<input class="span2 userId" type="text"></p>
+          <p>Nombre:<input class="span2 userName" required='required' type="text" autofocus></p>
+          <p>Apellidos:<input class="span2 userLastName" required='required' type="text"></p>
+          <p>e-mail:<input class="span2 userId" required='required' type="email"></p>
           <p><select class="userSex"><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
-          <p>Edad:<input class="span2 userAge" type="text"></p>
-          <p>Contraseña:<input class="span2 userPass" type="password"></p>
+          <p>Edad:<input class="span2 userAge" required='required' type="number" min='0' step='0.5'></p>
+          <p>Contraseña:<input class="span2 userPass" required='required' type="password"></p>
         </form>
         <div class="modal-footer">
           <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
@@ -150,7 +150,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
             </button>
-            <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
+            <h3 id="myModalLabel">ReadyToCharge&Go informa que...</h3>
           </div>
           <div class="modal-body">
             <p>Lo sentimos pero tienes que iniciar sesión para poder acceder.</p>
