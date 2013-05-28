@@ -27,21 +27,21 @@
   <div id="#pageContent" class="container">
 
 <!--navbar-->
-  <nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
       <nav class="container">
         <a id="btnHome" class="cursorPointer brand" href="/">ReadyToCharge&amp;Go</a>
         <nav class="nav-collapse collapse">
           <ul id="navRef" class="nav">
-            <li id="newUser" class="cursorPointer newUser"><a>¿Nuevo Usuario?</a></li>
+            <li class="cursorPointer" style="display:none"><a>¿Nuevo Usuario?</a></li>
             <li class="cursorPointer hide"><a>Mis Reservas</a></li>
           </ul>
         </nav>
-        <nav class='user'>
+        <nav>
           <form class='navbar-form pull-right login'>
-            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus >
-            <input type="password" class="span2" placeholder='contraseña' name="userPass">
-            <button class='btn login'>Iniciar Sesion</button>
+            <input type="text" class='span2' placeholder='e-mail' name="userId" autofocus style="display:none">
+            <input type="password" class="span2" placeholder='contraseña' name="userPass" style="display:none">
+            <button class='btn' style="display:none">Iniciar Sesion</button>
             <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
             <ul class="dropdown-menu">
                 <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
@@ -52,7 +52,7 @@
        </nav> 
       </nav>
     </nav>
-  </nav>
+  </nav> 
 
   <!--ReadyToChargeInformation-->
   <div id="ReadyToChargeInformacion" class="container ReadyToChargeInformacion" style="display: block;">
@@ -107,73 +107,73 @@
     </div>
   </div>
 
-  <!--constructing modal-->
-  <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-      </button>
-      <h3 id="myModalLabel">ReadyToCharge&Go !!!</h3>
+  <!-- modal constructing -->
+    <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
+        </button>
+        <h3 id="myModalLabel">ReadyToCharge&Go !!!</h3>
+      </div>
+      <div class="modal-body"><p>Ey, vamos todo lo rápido que podemos! Esperamos tener disponible el contenido solicitado en un periodo de tiempo indeterminado.</p><p>Gracias por vuestra paciencia.</p>
+      </div>
+     <div class="modal-footer">
+      <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK</button>
+     </div>
     </div>
-    <div class="modal-body"><p>Ey, vamos todo lo rápido que podemos! Esperamos tener disponible el contenido solicitado en un periodo de tiempo indeterminado.</p><p>Gracias por vuestra paciencia.</p>
-    </div>
-   <div class="modal-footer">
-    <button onclick="errorAlertDialogOk ();" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK</button>
-   </div>
-  </div>
 
-  <!--new user modal-->
-  <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-      </button>
-      <h3 id="myModalLabel">Bienvenido</h3>
+  <!-- modal new user -->
+      <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
+          </button>
+          <h3 id="myModalLabel">Bienvenido</h3>
+        </div>
+        <form class="modal-body newUser">
+          <p>Nombre:<input class="span2" type="text" autofocus required></p>
+          <p>Apellidos:<input class="span2" type="text" required></p>
+          <p>e-mail:<input class="span2" type="email" required></p>
+          <p><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
+          <p>Edad:<input class="span2" type="number" min="18" max="120" required></p>
+          <p>Contraseña:<input class="span2" type="password" required></p>
+        </form>
+        <div class="modal-footer">
+          <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+          <button class="btn btn-success">Crear Usuario</button>
+        </div>
     </div>
-    <form class="modal-body newUser">
-      <p>Nombre:<input class="span2 userName" type="text" autofocus></p>
-      <p>Apellidos:<input class="span2 userLastName" type="text"></p>
-      <p>e-mail:<input class="span2 userId" type="text"></p>
-      <p><select class="userSex"><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
-      <p>Edad:<input class="span2 userAge" type="text"></p>
-      <p>Contraseña:<input class="span2 userPass" type="password"></p>
-    </form>
-    <div class="modal-footer">
-      <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-      <button class="btn btn-success newUser" onclick="postNewUser();">Crear Usuario</button>
-    </div>
-</div>
 
-  <!--wrong user modal-->
-  <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-      </button>
-      <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
-    </div>
-    <div class="modal-body">
-      <p>Lo sentimos pero no hemos encontrado a ningún usuario que concuerde con los datos que has introducido.</p>
-      <p>Por favor, vuelve a intentarlo.</p>
-    </div>
-    <div class="modal-footer">
-      <button onclick="wrongUserAlertDialogOk ();" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK
-      </button>
-    </div>
-  </div>
+  <!-- modal wrong user -->
+        <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
+            </button>
+            <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
+          </div>
+          <div class="modal-body">
+            <p>Lo sentimos pero no hemos encontrado a ningún usuario que concuerde con los datos que has introducido.</p>
+            <p>Por favor, vuelve a intentarlo.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK
+            </button>
+          </div>
+        </div>
 
-  <!--user not logged modal-->
-  <div id="notLoggedAlertDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-      </button>
-      <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
-    </div>
-    <div class="modal-body">
-      <p>Lo sentimos pero tienes que iniciar sesión para poder acceder.</p>
-    </div>
-    <div class="modal-footer">
-      <button onclick="notLoggedAlertDialogOk ();" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK
-      </button>
-    </div>
-  </div>
+  <!--modal user not logged-->
+        <div class="modal hide fade login" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
+            </button>
+            <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
+          </div>
+          <div class="modal-body">
+            <p>Lo sentimos pero tienes que iniciar sesión para poder acceder.</p>
+          </div>
+          <div class="modal-footer">
+            <button onclick="notLoggedAlertDialogOk ();" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK
+            </button>
+          </div>
+      </div>
 
     </div>
 
@@ -181,35 +181,35 @@
     </div>
 
 <!--footer-->
-  <footer class="footer" style="background-color:#1B1B1B;">
-    <div class="container" style="margin:0 auto;">
-      <div class="row">
-        <div class="span2 offset2">
-          <h4>Compañía</h4>
-          <ul>
-              <li><a href="">¿Quiénes somos?</a></li>
-              <li><a href="">Contacto</a></li>
-          </ul>
-         </div>
-        <div class="span2 offset1">
-          <h4>Más Información</h4>
+    <footer class="footer" style="background-color:#1B1B1B;">
+      <div class="container" style="margin:0 auto;">
+        <div class="row">
+          <div class="span2 offset2">
+            <h4>Compañía</h4>
             <ul>
-              <li><a href="">Ayuda</a></li>
-              <li><a href="">FAQ</a></li>
-              <li><a href="">Soporte</a></li>
+                <li><a href="">¿Quiénes somos?</a></li>
+                <li><a href="">Contacto</a></li>
             </ul>
-        </div>
-        <div class="span2 offset1">
-            <h4>Síguenos</h4>
-            <ul>                   
-              <li><a href="">Twitter</a></li>
-              <li><a href="">LinkedIn</a></li>
-              <li><a href="">Google+</a></li>                    
-            </ul>
-        </div>
+           </div>
+          <div class="span2 offset1">
+            <h4>Más Información</h4>
+              <ul>
+                <li><a href="">Ayuda</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Soporte</a></li>
+              </ul>
+          </div>
+          <div class="span2 offset1">
+              <h4>Síguenos</h4>
+              <ul>                   
+                <li><a href="">Twitter</a></li>
+                <li><a href="">LinkedIn</a></li>
+                <li><a href="">Google+</a></li>                    
+              </ul>
+          </div>
+         </div>
        </div>
-     </div>
-  </footer>
+    </footer>
 
     <!-- JQuery dependencies-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -218,6 +218,7 @@
     <script src="static/js/cookie.js"></script>
     <!--ReadyToCharge&Go script -->
     <script src="static/js/login.js"></script>
+    <script src="static/js/script.js"></script>
     <!-- Bootstrap dependencies-->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap-modal.js"></script>
@@ -226,6 +227,3 @@
     <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
 </body>
 </html>
-
-
-

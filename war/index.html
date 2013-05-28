@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>ReadyToCharge&amp;GO</title>
-    <meta name="description" content="Ready To Charge And Go!">
-    <meta name="aitor" content="">
-    <!--—[if lt IE 9]-->
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
-    <!--[endif]—-->   
-    <link rel="shortcut icon" type="image/x-icon" href="static/images/chargeimg.png">
-
-    <!-- CSS dependencies-->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <!-- Les Styles -->
-    <link rel="stylesheet" href="static/css/main.css" type="text/css">
-    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-  </head>
-
+<head>
+  <meta charset="utf-8">
+  <title>ReadyToCharge&amp;GO</title>
+  <meta name="description" content="Ready To Charge And Go!">
+  <meta name="aitor" content="">
+  <!--—[if lt IE 9]-->
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
+  <!--[endif]—-->   
+  <link rel="shortcut icon" type="image/x-icon" href="static/images/chargeimg.png">
+  <!-- CSS dependencies-->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  <!-- Les Styles -->
+  <link rel="stylesheet" href="static/css/main.css" type="text/css">
+  <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
 
 <body>
 
   <div id="wrap">
-
   <div id="#pageContent" class="container">
-
 <!--navbar-->
-  <nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
       <nav class="container">
         <a id="btnHome" class="cursorPointer brand" href="/">ReadyToCharge&amp;Go</a>
         <nav class="nav-collapse collapse">
           <ul id="navRef" class="nav">
-            <li id="newUser" class="cursorPointer newUser" style="display:none"><a>¿Nuevo Usuario?</a></li>
+            <li class="cursorPointer" style="display:none"><a>¿Nuevo Usuario?</a></li>
             <li class="cursorPointer hide"><a>Mis Reservas</a></li>
           </ul>
         </nav>
-        <nav class='user'>
+        <nav>
           <form class='navbar-form pull-right login'>
-            <input type="text" class='span2 username' placeholder='e-mail' name="userId" autofocus style="display:none">
+            <input type="text" class='span2' placeholder='e-mail' name="userId" autofocus style="display:none">
             <input type="password" class="span2" placeholder='contraseña' name="userPass" style="display:none">
-            <button class='btn login' style="display:none">Iniciar Sesion</button>
+            <button class='btn' style="display:none">Iniciar Sesion</button>
             <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
             <ul class="dropdown-menu">
                 <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
@@ -51,8 +47,9 @@
        </nav> 
       </nav>
     </nav>
-    </nav>
+  </nav>
 
+<!--index-->
     <div  class="container index" style="display :block;">
       <h1 class="centeredTitle">ReadyToCharge&Go</h1>
       <div class="informationRows">
@@ -94,7 +91,7 @@
       </div>
     </div>
 
-  <!--constructing modal-->
+<!-- modal constructing -->
     <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
@@ -108,7 +105,7 @@
      </div>
     </div>
 
-  <!--new user modal-->
+<!-- modal new user -->
       <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
@@ -116,20 +113,20 @@
           <h3 id="myModalLabel">Bienvenido</h3>
         </div>
         <form class="modal-body newUser">
-          <p>Nombre:<input class="span2 userName" type="text" autofocus></p>
-          <p>Apellidos:<input class="span2 userLastName" type="text"></p>
-          <p>e-mail:<input class="span2 userId" type="text"></p>
-          <p><select class="userSex"><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
-          <p>Edad:<input class="span2 userAge" type="text"></p>
-          <p>Contraseña:<input class="span2 userPass" type="password"></p>
+          <p>Nombre:<input class="span2" type="text" autofocus required></p>
+          <p>Apellidos:<input class="span2" type="text" required></p>
+          <p>e-mail:<input class="span2" type="email" required></p>
+          <p><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
+          <p>Edad:<input class="span2" type="number" min="18" max="120" required></p>
+          <p>Contraseña:<input class="span2" type="password" required></p>
         </form>
         <div class="modal-footer">
           <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-          <button class="btn btn-success newUser" onclick="postNewUser();">Crear Usuario</button>
+          <button class="btn btn-success">Crear Usuario</button>
         </div>
     </div>
 
-  <!--wrong user modal-->
+<!-- modal wrong user -->
         <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
@@ -146,7 +143,7 @@
           </div>
         </div>
 
-  <!--user not logged modal-->
+<!--modal user not logged-->
         <div class="modal hide fade login" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x

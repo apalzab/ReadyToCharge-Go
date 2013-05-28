@@ -72,7 +72,23 @@ text-align:center;
 background-color: #181818;
 }
 
-#progressBar{
+.progressBar{
 margin-top: 70px;
+}
+
+.table th, .timetables td {
+  text-align: center;
+}
+
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: url('icon_top.png') no-repeat;
 }
 
