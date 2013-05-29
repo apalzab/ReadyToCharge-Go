@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <title>ReadyToCharge&amp;GO</title>
-  <meta name="description" content="Ready To Charge And Go!">
-  <meta name="aitor" content="">
-  <!--—[if lt IE 9]-->
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
-  <!--[endif]—-->   
-  <link rel="shortcut icon" type="image/x-icon" href="static/images/chargeimg.png">
-  <!-- CSS dependencies-->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-  <!-- Les Styles -->
-  <link rel="stylesheet" href="static/css/main.css" type="text/css">
-  <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>ReadyToCharge&amp;GO</title>
+    <meta name="description" content="Ready To Charge And Go!">
+    <meta name="aitor" content="">
+    <!--—[if lt IE 9]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
+    <!--[endif]—-->   
+    <link rel="shortcut icon" type="image/x-icon" href="/readyToChargeIcon.ico">
+    <!-- CSS dependencies-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Les Styles -->
+    <link rel="stylesheet" href="static/css/main.css" type="text/css">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+
 
 <body>
 
   <div class="wrap">
+
   <div class="container">
+
 <!--navbar-->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
@@ -39,59 +42,70 @@
             <button class='btn' style="display:none">Iniciar Sesion</button>
             <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
             <ul class="dropdown-menu">
-              <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
-              <li class="divider"></li>
-              <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
-            </ul>
+                <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
+                <li class="divider"></li>
+                <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+              </ul>
           </form> 
        </nav> 
       </nav>
     </nav>
-  </nav>
+  </nav> 
 
-<!--index-->
-    <div  class="container index" style="display :block;">
-      <h1 class="centeredTitle">ReadyToCharge&Go</h1>
-      <div class="informationRows">
-        <div  class="row">
-          <row>
-            <ul class="thumbnails">
-              <li class="span5">
-                <a class="thumbnail" href="#">
-                  <img src="static/images/chargeimg.png"  class="img-rounded socketImg" alt=""></a>
-              </li>
-              <li class="span5">
-                <a href="#" class="thumbnail">
-                  <img src="static/images/carimg.png"  class="img-rounded carImg" alt="" align="center">
-                </a>
-              </li>
-            </ul>
+  <!--ReadyToChargeInformation-->
+  <div id="ReadyToChargeInformacion" class="container ReadyToChargeInformacion" style="display: block;">
+    <h1 class="centeredTitle">Hola, ReadyToCharge!</h1>
+    <ul>
+      <li>
+        <p>ReadyToCharge es un sistema de gestión de reservas para coches, motos o bicicletas eléctricas. El sistema permite reservar un espacio de tiempo para poder realiza una recarga de coche, moto o bicicleta en una de las estaciones de carga de la ciudad de Bilbao. Dichas estaciones se encuentran ubicadas en Deusto, Leioa, Sarriko y San Mamés.</p>
+      </li>
+      <li>
+        <p>Ahorra tiempo y ayuda a proteger el medio ambiente moviéndote de forma inteligente. ¡Únete ya a ReadyToCharge&amp;Go y comienza a disfrutar de las ventajas!</p></li><li><p>Todo esto conlleva a una reducción de costes y también aun mejor cuidado del medio ambiente.</p>
+      </li>
+      <li>
+        <p> Únete a ReadyToGo y comienza a disfrutar de las ventajas del e-car leasing &amp; e-car sharing.</p>
+      </li>
+    </ul>
+
+    <div class="informationRows">
+      <div class="row">
+        <row>
+          <div class="span5">
+            <h2>Reserva tu recarga</h2>
+            <p>No te la juegues.</p>
+            <a href="http://readytocharge.appspot.com/#">
+              <img src="static/images/timetables.png" class="img-rounded" alt="" align="center"></a>
+            </div>
+            <div class="span5">
+              <h2>Ahorra tiempo</h2>
+              <p>Sin esperas.</p>
+              <a href="http://readytocharge.appspot.com/#">
+                <img src="static/images/clock.png" class="img-rounded" alt="" align="center">
+              </a>
+            </div>
           </row>
-        </div>      
+        </div>
         <div class="row">
-          <row>
-            <div class="span5">
-              <h2>ReadyToCharge</h2>
-              <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!
-              </p>
-              <p>
-                <a id="btnReadyToCharge" class="btn btn-inverse" href="/ready_to_charge_information.html">Más ReadyToCharge! &raquo;</a>
-              </p>
-            </div>
-            <div class="span5">
-              <h2>ReadyToGo</h2>
-              <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! 
-              </p>
-              <p>
-                <a id="btnReadyToGo" class="btn btn-inverse" href="/ready_to_go_information.html">Más ReadyToGo! &raquo;</a>
-              </p>
-            </div>
-          </row>
-       </div>
+            <row>
+              <div class="span5">
+                <h2>Cuida el medio ambiente</h2>
+                <p> En ReadyToCharge&amp;Go utilizamos energia 100% de origen renovable. Deja ya de sobreexplotar el planeta y únete a nuestra filosofía.</p>
+                <a href="http://readytocharge.appspot.com/#">
+                  <img src="static/images/tree.png" class="img-rounded" alt="" align="center">
+                </a>
+              </div>
+              <div class="span5">
+                <h2>¿Por qué empezar a utilizarlo?</h2><p>Porque quiero ahorrar, respeto el medio ambiente y quiero moverme de manera diferente.</p>
+                <a href="http://readytocharge.appspot.com/#">
+                  <img src="static/images/questionSymbol.png" class="img-rounded" alt="" align="center">
+                </a>
+              </div>
+            </row>
       </div>
     </div>
+  </div>
 
-<!-- modal constructing -->
+  <!-- modal constructing -->
     <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
@@ -105,7 +119,7 @@
      </div>
     </div>
 
-<!-- modal new user -->
+  <!-- modal new user -->
       <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
@@ -113,15 +127,12 @@
           <h3 id="myModalLabel">Bienvenido</h3>
         </div>
         <form class="modal-body newUser">
-          <ul>
-            <li><label>Nombre</label><input class="span2" type="text" autofocus required></li>
-            <li><label>Apellidos</label><input class="span2" type="text" required></li>
-            <li><label>E-mail</label><input class="span2" type="email" required></li>
-            <li><label>Sexo</label><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></li>
-            <li><label>Edad</label><input value="18" class="span2" type="number" min="18" max="120" required></li>
-            <li><label>Contraseña</label><input class="span2" type="password" required></li>
-            <!--<li><label>Repite la contraseña</label><input class="span2" type="password" required></li>-->
-          </ul>
+          <p>Nombre:<input class="span2" type="text" autofocus required></p>
+          <p>Apellidos:<input class="span2" type="text" required></p>
+          <p>e-mail:<input class="span2" type="email" required></p>
+          <p><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
+          <p>Edad:<input class="span2" type="number" min="18" max="120" required></p>
+          <p>Contraseña:<input class="span2" type="password" required></p>
         </form>
         <div class="modal-footer">
           <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
@@ -129,7 +140,7 @@
         </div>
     </div>
 
-<!-- modal wrong user -->
+  <!-- modal wrong user -->
         <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
@@ -146,7 +157,7 @@
           </div>
         </div>
 
-<!--modal user not logged-->
+  <!--modal user not logged-->
         <div class="modal hide fade login" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
