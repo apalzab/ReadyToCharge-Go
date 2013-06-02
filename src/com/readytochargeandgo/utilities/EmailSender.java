@@ -31,65 +31,28 @@ private static EmailSender emailSender=null;
 	}
 	
 	
-	
-	
-	
 	public void newUserConfirmationEmail(User user)
 	{	
-
-		
-        
-		
 		Properties props = new Properties();
-	    Session session = Session.getDefaultInstance(props, null);
-	    
-	   
-	   
-	    
-	    
-	    
-	   
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	    Session session = Session.getDefaultInstance(props, null);   
 	    try {
 	    	
-	    	 
 		    Message msg = new MimeMessage(session);	    
 		    msg.setFrom(new InternetAddress("readytochargeandgo@gmail.com", "ReadyToCharge&Go email delivery"));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getUserId(),user.getUserName()));
             msg.setSubject("Bienvenido," + user.getUserName() );
 
-	      
-
 	        Multipart mp = new MimeMultipart();
-
 	        MimeBodyPart htmlPart = new MimeBodyPart();
 	        
-	         
-	       String request= "http://readytocharge.appspot.com/app/Users/" + user.getUserId();
-	 	   String htmlBody = user.getUserName().toUpperCase() + ", bienvenido a ReadyToCharge&Go!!!" +	 			   			
-	 			  "<p>Haz click en el link para confirmar el alta en el sistema:</p>"+
-	 			   "<a href=" + request + ">??Darme de alta!</a>";
-
-
+	        String link="http://rtcandg.appspot.com";
+	        String userid = user.getUserId();
+	        String l = "http://readytocharge.appspot.com/app/Users/" + userid;
+	        String a = user.getUserName().toUpperCase() + ", bienvenido a ReadyToCharge&Go!!!" + "<p>Haz click en el botón para confirmar el alta en el sistema</p>" + "<form name='input' action='" + l + "' method='post'> <input type='submit' value='Confirmar mi cuenta'></form>";
 	        
-	        
-	        
-	        htmlPart.setContent(htmlBody, "text/html");
+	        htmlPart.setContent(a, "text/html");
 	        mp.addBodyPart(htmlPart);
-
-
-	        msg.setContent(mp);
-	    	
-	    	
-	    	
-            
-                        
+	        msg.setContent(mp);            
             Transport.send(msg);	    
 	        } 	    	
 	    catch (AddressException e) {} 

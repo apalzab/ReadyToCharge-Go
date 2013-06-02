@@ -42,15 +42,15 @@
             <button class='btn' style="display:none">Iniciar Sesion</button>
             <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
             <ul class="dropdown-menu">
-                <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
-                <li class="divider"></li>
-                <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
-              </ul>
+              <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
+              <li class="divider"></li>
+              <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+            </ul>
           </form> 
        </nav> 
       </nav>
     </nav>
-  </nav> 
+  </nav>
 
   <!--ReadyToChargeInformation-->
   <div id="ReadyToChargeInformacion" class="container ReadyToChargeInformacion" style="display: block;">
@@ -119,26 +119,29 @@
      </div>
     </div>
 
-  <!-- modal new user -->
-      <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-          </button>
-          <h3 id="myModalLabel">Bienvenido</h3>
-        </div>
-        <form class="modal-body newUser">
-          <p>Nombre:<input class="span2" type="text" autofocus required></p>
-          <p>Apellidos:<input class="span2" type="text" required></p>
-          <p>e-mail:<input class="span2" type="email" required></p>
-          <p><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></p>
-          <p>Edad:<input class="span2" type="number" min="18" max="120" required></p>
-          <p>Contraseña:<input class="span2" type="password" required></p>
-        </form>
-        <div class="modal-footer">
-          <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-          <button class="btn btn-success">Crear Usuario</button>
-        </div>
+<!-- modal new user -->
+  <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
+      </button>
+      <h3 id="myModalLabel">Bienvenido</h3>
     </div>
+    <form class="modal-body newUser">
+      <ul>
+        <li><label>Nombre</label><input class="span2" type="text" autofocus required></li>
+        <li><label>Apellidos</label><input class="span2" type="text" required></li>
+        <li><label>E-mail</label><input class="span2" type="email" required></li>
+        <li><label>Sexo</label><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></li>
+        <li><label>Edad</label><input value="18" class="span2" type="number" min="18" max="120" required></li>
+        <li><label>Contraseña</label><input class="span2" type="password" required></li>
+        <!--<li><label>Repite la contraseña</label><input class="span2" type="password" required></li>-->
+      </ul>
+    </form>
+    <div class="modal-footer">
+      <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+      <button class="btn btn-success">Crear Usuario</button>
+    </div>
+</div>
 
   <!-- modal wrong user -->
         <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">

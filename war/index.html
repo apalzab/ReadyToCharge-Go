@@ -20,76 +20,112 @@
 <body>
 
   <div class="wrap">
-  <div class="container">
-<!--navbar-->
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <nav class="navbar-inner">
-      <nav class="container">
-        <a id="btnHome" class="cursorPointer brand" href="/">ReadyToCharge&amp;Go</a>
-        <nav class="nav-collapse collapse">
-          <ul id="navRef" class="nav">
-            <li class="cursorPointer" style="display:none"><a>¿Nuevo Usuario?</a></li>
-            <li class="cursorPointer hide"><a>Mis Reservas</a></li>
-          </ul>
+    <div class="container">
+    <!--navbar-->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar-inner">
+          <nav class="container">
+            <a id="btnHome" class="cursorPointer brand" href="/">ReadyToCharge&amp;Go</a>
+            <nav class="nav-collapse collapse">
+              <ul id="navRef" class="nav">
+                <li class="cursorPointer" style="display:none"><a>¿Nuevo Usuario?</a></li>
+                <li class="cursorPointer hide"><a>Mis Reservas</a></li>
+              </ul>
+            </nav>
+            <nav>
+              <form class='navbar-form pull-right login'>
+                <input type="email" class='span2' placeholder='e-mail' name="userId" autofocus style="display:none" required>
+                <input type="password" class="span2" placeholder='contraseña' name="userPass" style="display:none" required>
+                <button class='btn' style="display:none">Iniciar Sesion</button>
+                <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
+                <ul class="dropdown-menu">
+                  <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
+                  <li class="divider"></li>
+                  <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+                </ul>
+              </form> 
+           </nav> 
+          </nav>
         </nav>
-        <nav>
-          <form class='navbar-form pull-right login'>
-            <input type="email" class='span2' placeholder='e-mail' name="userId" autofocus style="display:none" required>
-            <input type="password" class="span2" placeholder='contraseña' name="userPass" style="display:none" required>
-            <button class='btn' style="display:none">Iniciar Sesion</button>
-            <button class='btn dropdown-toggle user' data-toggle="dropdown" style="display:none"></button>
-            <ul class="dropdown-menu">
-              <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
-              <li class="divider"></li>
-              <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
-            </ul>
-          </form> 
-       </nav> 
       </nav>
-    </nav>
-  </nav>
 
-<!--index-->
-    <div  class="container index" style="display :block;">
-      <h1 class="centeredTitle">ReadyToCharge&Go</h1>
-      <div class="informationRows">
-        <div  class="row">
-          <row>
-            <ul class="thumbnails">
-              <li class="span5">
-                <a class="thumbnail" href="#">
-                  <img src="static/images/chargeimg.png"  class="img-rounded socketImg" alt=""></a>
-              </li>
-              <li class="span5">
-                <a href="#" class="thumbnail">
-                  <img src="static/images/carimg.png"  class="img-rounded carImg" alt="" align="center">
-                </a>
-              </li>
-            </ul>
-          </row>
-        </div>      
-        <div class="row">
-          <row>
-            <div class="span5">
-              <h2>ReadyToCharge</h2>
-              <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!
-              </p>
-              <p>
-                <a id="btnReadyToCharge" class="btn btn-inverse" href="/ready_to_charge_information.html">Más ReadyToCharge! &raquo;</a>
-              </p>
-            </div>
-            <div class="span5">
-              <h2>ReadyToGo</h2>
-              <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! 
-              </p>
-              <p>
-                <a id="btnReadyToGo" class="btn btn-inverse" href="/ready_to_go_information.html">Más ReadyToGo! &raquo;</a>
-              </p>
-            </div>
-          </row>
-       </div>
+  <!--index-->
+      <div  class="container index" style="display :block;">
+        <h1 class="centeredTitle">ReadyToCharge&Go</h1>
+        <div class="informationRows">
+          <div  class="row">
+            <row>
+              <ul class="thumbnails">
+                <li class="span5">
+                  <a class="thumbnail" href="#">
+                    <img src="static/images/chargeimg.png"  class="img-rounded socketImg" alt=""></a>
+                </li>
+                <li class="span5">
+                  <a href="#" class="thumbnail">
+                    <img src="static/images/carimg.png"  class="img-rounded carImg" alt="" align="center">
+                  </a>
+                </li>
+              </ul>
+            </row>
+          </div>      
+          <div class="row">
+            <row>
+              <div class="span5">
+                <h2>ReadyToCharge</h2>
+                <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!
+                </p>
+                <p>
+                  <a id="btnReadyToCharge" class="btn btn-inverse" href="/ready_to_charge_information.html">Más ReadyToCharge! &raquo;</a>
+                </p>
+              </div>
+              <div class="span5">
+                <h2>ReadyToGo</h2>
+                <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! 
+                </p>
+                <p>
+                  <a id="btnReadyToGo" class="btn btn-inverse" href="/ready_to_go_information.html">Más ReadyToGo! &raquo;</a>
+                </p>
+              </div>
+            </row>
+         </div>
+        </div>
       </div>
+
     </div>
+
+  <div class="push"></div>
+  </div>
+
+<!--footer-->
+    <footer class="footer" style="background-color:#1B1B1B;">
+      <div class="container" style="margin:0 auto;">
+        <div class="row">
+          <div class="span2 offset2">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="">¿Quiénes somos?</a></li>
+                <li><a href="">Contacto</a></li>
+            </ul>
+           </div>
+          <div class="span2 offset1">
+            <h4>Más Información</h4>
+              <ul>
+                <li><a href="">Ayuda</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Soporte</a></li>
+              </ul>
+          </div>
+          <div class="span2 offset1">
+              <h4>Síguenos</h4>
+              <ul>                   
+                <li><a href="">Twitter</a></li>
+                <li><a href="">LinkedIn</a></li>
+                <li><a href="">Google+</a></li>                    
+              </ul>
+          </div>
+         </div>
+       </div>
+    </footer>
 
 <!-- modal constructing -->
     <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
@@ -105,6 +141,21 @@
      </div>
     </div>
 
+    <!-- modal welcome -->
+    <div class="modal hide fade welcome" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
+        </button>
+        <h3>¡Bienvenido a bordo!</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+     <div class="modal-footer">
+      <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK</button>
+     </div>
+    </div>
+
+
 <!-- modal new user -->
       <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
         <div class="modal-header">
@@ -119,8 +170,9 @@
             <li><label>E-mail</label><input class="span2" type="email" required></li>
             <li><label>Sexo</label><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></li>
             <li><label>Edad</label><input value="18" class="span2" type="number" min="18" max="120" required></li>
-            <li><label>Contraseña</label><input class="span2" type="password" required></li>
-            <!--<li><label>Repite la contraseña</label><input class="span2" type="password" required></li>-->
+            <li><label>Contraseña</label><input class="span2" type="password" required><i class="icon-remove"></i></li>
+            <li style="display:none;"><label>Repite la contraseña </label><input class="span2" type="password" required><i class="icon-remove"></i>
+            </li>
           </ul>
         </form>
         <div class="modal-footer">
@@ -161,42 +213,6 @@
             </button>
           </div>
       </div>
-
-    </div>
-
-    <div class="push"></div>
-    </div>
-
-<!--footer-->
-    <footer class="footer" style="background-color:#1B1B1B;">
-      <div class="container" style="margin:0 auto;">
-        <div class="row">
-          <div class="span2 offset2">
-            <h4>Compañía</h4>
-            <ul>
-                <li><a href="">¿Quiénes somos?</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-           </div>
-          <div class="span2 offset1">
-            <h4>Más Información</h4>
-              <ul>
-                <li><a href="">Ayuda</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Soporte</a></li>
-              </ul>
-          </div>
-          <div class="span2 offset1">
-              <h4>Síguenos</h4>
-              <ul>                   
-                <li><a href="">Twitter</a></li>
-                <li><a href="">LinkedIn</a></li>
-                <li><a href="">Google+</a></li>                    
-              </ul>
-          </div>
-         </div>
-       </div>
-    </footer>
 
     <!-- JQuery dependencies-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

@@ -80,12 +80,18 @@ margin-top: 70px;
 text-align: center;
 }
 
+.newUser {
+height:auto;
+}
+
 .newUser form ul
 {
 list-style-type: none;
 margin-left: 0;
 }
 
-
+.modal-body {
+    max-height: 800px;
+}
 
 
