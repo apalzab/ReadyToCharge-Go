@@ -1,6 +1,7 @@
 package com.readytochargeandgo.dao;
 
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
 import com.readytochargeandgo.domainObjects.Booking;
 import com.readytochargeandgo.domainObjects.User;
 
@@ -20,4 +21,5 @@ public interface IDao {
 	public boolean existsUser(String userId,String kind);
 	public void newUser1(User u);
 	public Booking readyToChargeBooking(Booking b);
+	Booking readyToChargeBooking(Booking bookingRequest, Key availableTimeKey);
 }

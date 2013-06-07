@@ -1,6 +1,7 @@
 package com.readytochargeandgo.dao;
 
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
 import com.readytochargeandgo.domainObjects.Booking;
 import com.readytochargeandgo.domainObjects.User;
 
@@ -63,8 +64,8 @@ public class DAOService {
 		}
 	
 		
-		public Booking readyToChargeBooking(Booking b){
-			return dao.readyToChargeBooking(b);
+		public Booking readyToChargeBooking(Booking b, Key key){
+			return dao.readyToChargeBooking(b,key);
 		}
 	
 

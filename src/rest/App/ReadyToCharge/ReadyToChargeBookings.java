@@ -29,30 +29,25 @@ public class ReadyToChargeBookings {
 	 public Booking booking(Booking bookingRequest) 
 	 	{
 			
-		 Booking bookingResponse=new Booking();
-		 
-		 //comprobamos usuario
-		 
-		 DAOService service=new DAOService();
-			
-			
-			Entity arrayRecargas[]=service.getAvailableTimes(bookingRequest.getChargeStation(),bookingRequest.getChargeType());
-			
+		 Booking bookingResponse=new Booking(); 
+		 DAOService service=new DAOService();	
+		 Integer hour = Integer.valueOf(bookingRequest.getHour()); 
+		 Integer minutes = Integer.valueOf(bookingRequest.getMinutes());
+		 Entity arrayRecargas[]=service.getAvailableTimes(bookingRequest.getChargeStation(),bookingRequest.getChargeType());			
 			for (int i=0;i<arrayRecargas.length;i++)
-			{
+			{ 
+				boolean free = (boolean) arrayRecargas[i].getProperty("free");
 				Date d=(Date)arrayRecargas[i].getProperty("date");
-				if (d.getHours()==Integer.valueOf(bookingRequest.getHour()) && d.getMinutes()==Integer.valueOf(bookingRequest.getMinutes()))
+				if (d.getHours()==hour && d.getMinutes()== minutes && free==true  )
 					{
 					
 					bookingRequest.setSocketId((String) arrayRecargas[i].getProperty("socketId"));
 					bookingRequest.setBookingId(arrayRecargas[i].getKey().getId());
-					bookingResponse=service.readyToChargeBooking(bookingRequest);
+					bookingResponse=service.readyToChargeBooking(bookingRequest, arrayRecargas[i].getKey());
+					bookingResponse = bookingRequest;
 					return bookingResponse;
 					}
 			}
-			
-			
-		//return service.getAvailableTime(bookng);
 			return bookingResponse;
 	    }
 	

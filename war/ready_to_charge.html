@@ -101,7 +101,7 @@
       <td>${chargeStation}</td>
       <td>${chargeType}</td>
       <td>${completeTime}</td>
-      <td><button class="ejemplo btn btn-inverse book" data-time=${completeTime}>Reservar</button></td>
+      <td><button class="ejemplo btn btn-inverse book" data-chargeStation=${chargeStation} data-chargeType=${chargeType} data-hour=${hour} data-minutes=${minutes} data-day=${day} data-month=${month} data-year=${year}>Reservar</button></td>
     </tr>
   </script>
 
@@ -125,36 +125,34 @@
     <div class="push"></div>
     </div>
 
-<!-- footer -->
-  <footer class="footer" style="background-color:#1B1B1B;">
-    <div class="container" style="margin:0 auto;">
-      <div class="row">
-        <div class="span2 offset2">
-          <h4>Compañía</h4>
-          <ul>
-              <li><a href="">¿Quiénes somos?</a></li>
-              <li><a href="">Contacto</a></li>
-          </ul>
+<!--footer-->
+    <footer class="footer" style="background-color:#1B1B1B;">
+      <div class="container" style="margin:0 auto;">
+        <div class="row">
+          <div class="span2 offset2">
+            <h4>Compañía</h4>
+            <ul>
+              <li><a href="http://aitorpalacios.com/" target="_blank">Contacto / About me</a></li>
+            </ul>
+           </div>
+          <div class="span2 offset1">
+            <h4>Más Información</h4>
+            <ul>
+              <li><a href="others/help.html">Ayuda</a></li>
+              <li><a href="others/faq.html">FAQ</a></li>
+              <li><a href="others/support.html">Soporte</a></li>
+            </ul>
+          </div>
+          <div class="span2 offset1">
+              <h4>Síguenos</h4>
+              <ul>
+                <li><a href="http://es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1" target="_blank">Github</a></li>
+                <li><a href="es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1/" target="_blank">LinkedIn</a></li>
+              </ul>
+          </div>
          </div>
-        <div class="span2 offset1">
-          <h4>Más Información</h4>
-            <ul>
-              <li><a href="">Ayuda</a></li>
-              <li><a href="">FAQ</a></li>
-              <li><a href="">Soporte</a></li>
-            </ul>
-        </div>
-        <div class="span2 offset1">
-            <h4>Síguenos</h4>
-            <ul>
-              <li><a href="">Twitter</a></li>
-              <li><a href="">LinkedIn</a></li>
-              <li><a href="">Google+</a></li>
-            </ul>
-        </div>
        </div>
-     </div>
-  </footer>
+    </footer>
 
     <!-- JQuery dependencies-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

@@ -71,7 +71,7 @@ public class Users {
 		 		User u = service.getTemporalyUser(userId);
 		 		service.newUser1(u);
 		 		service.deleteUser(u.getUserId(), u.getUserPass(), "TemporalUsers");
-		 		String link = "http://rtcandg.appspot.com/";
+		 		String link = "http://readytocharge.appspot.com/";
 			 	return Response.status(200).type("text/html").entity("<div><p>Felicidades " +u.getUserName() + ", hemos creado tu perfil en nuestro sistema. ¡Ya puedes utilizar <a href="+ link +">ReadyToCharge&Go!</a></p></div>").build();
 		 		
 		 	}

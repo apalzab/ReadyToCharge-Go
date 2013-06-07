@@ -10,7 +10,7 @@ public class Booking {
 	
 	
 	String userId;
-	String userPass;
+	
 	String chargeType;
 	String chargeStation;
 	String socketId;
@@ -26,13 +26,6 @@ public class Booking {
 		return bookingId;
 	}
 	
-
-	public String getUserPass() {
-		return userPass;
-	}
-	public void setUserPass(String userPass) {
-		this.userPass = userPass;
-	}
 	public void setBookingId(long l) {
 		this.bookingId = l;
 	}

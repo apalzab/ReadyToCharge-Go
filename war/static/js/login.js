@@ -5,8 +5,11 @@ if ($.cookie('ReadyToChargeAndGo') != null) {
     var pass = ret[1];
     $('form.login input[type="email"]').hide();
     $('form.login input[type="password"]').hide();
+    $('form.login button:eq(0)').hide();
     $('form.login button:eq(1)').hide();
-    loginUser(id, pass);
+    id = id.split('@');
+    $('#newUser').hide();
+    $('form.login button.user').text("@"+id[0]).show();
   } else {
       $('form.login input[type="email"]').show();
       $('form.login input[type="password"]').show();
@@ -33,6 +36,8 @@ if ($.cookie('ReadyToChargeAndGo') != null) {
     $('form.login input[type="password"]').val("").show('slow');
     $('form.login button:eq(0)').show('slow');
     $('li.newUser').show('slow');
+    var url = "/";
+    $(location).attr('href',url);
   });
 
   function loginUser(user,pass) {
@@ -53,7 +58,11 @@ if ($.cookie('ReadyToChargeAndGo') != null) {
               $('form.login input[type="password"]').hide();
               $('form.login button:eq(0)').hide();
               $('#newUser').hide();
-              $('form.login button.user').text("@"+data.userName).show();
+              var str = $.cookie('ReadyToChargeAndGo');
+              var ret = str.split(':');
+              var id = ret[0];
+              id = id.split('@');
+              $('form.login button.user').text("@"+id[0]).show();
               progressBarEnd();
               },
             error: function(){

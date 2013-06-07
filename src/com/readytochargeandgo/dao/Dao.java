@@ -485,27 +485,17 @@ public class Dao implements IDao {
 		
 	}
 
-	@Override
-	public Booking readyToChargeBooking(Booking bookingRequest) {
+	public Booking readyToChargeBooking(Booking bookingRequest, Key key) {
 		// TODO Auto-generated method stub
-	
-		
-		
-
 		
 		try {
-			
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			
 			Date fecha=new Date();
 			//Establecemos la hora de apertura de estaciones
 			Calendar calendario=Calendar.getInstance();
 			calendario.set(fecha.getYear()+1900, fecha.getMonth(), fecha.getDate(), 8, 00,00);		
 			calendario.set(Integer.valueOf(bookingRequest.getYear()), Integer.valueOf(bookingRequest.getMonth()), Integer.valueOf(bookingRequest.getDay()), Integer.valueOf(bookingRequest.getHour()), Integer.valueOf(bookingRequest.getMinutes()));
-				
-						
-				
+			
 				//crear una Kind Reserva Entity
 				Entity booking = new Entity("Booking");				
 				booking.setProperty("date",calendario.getTime());
@@ -513,76 +503,33 @@ public class Dao implements IDao {
 				booking.setProperty("chargeType",bookingRequest.getChargeType());
 				booking.setProperty("socketId",  bookingRequest.getSocketId());
 				booking.setProperty("userId", bookingRequest.getUserId());
-				
-				
-				
-				
 				datastore.put(booking);
-		
-				
-				
-				
-				
-				
-				
-
-				
-							
-							
-			//
-
-				
-				
-				Key userKey = KeyFactory.createKey("AvailableTime", bookingRequest.getBookingId());
-				Entity availableTime = null;
-				
-				try {
-					availableTime= datastore.get(userKey);
-				    
-				    	
-				    				    	
-				    	availableTime.setProperty("free", false);
-				    				   
-				    	datastore.put(availableTime);
-				    
-				    	
-				} catch (EntityNotFoundException e) {
-				    // El usuario no existe
-				}		
-				
-				
-				
-				
-				
-				
 				
 				
 				bookingRequest.setBookingId(booking.getKey().getId());
 				
+				//Key userKey = KeyFactory.createKey("AvailableTime", bookingRequest.getBookingId());
+				Entity availableTime = null;
+				try {
+					availableTime= datastore.get(key);				    	
+			    	availableTime.setProperty("free", false);
+			    	datastore.put(availableTime);	
+				} catch (EntityNotFoundException e) {
+				    // El usuario no existe
+				}
 				
-				
-				
-				
-				
-				
-				
-				
-		//
 				return bookingRequest;
-				
 				
 		}
 		
 		catch (NullPointerException e){e.printStackTrace();}
 		return bookingRequest;
-		
-		
-		
-		
-		
-		
-		
-		
+	}
+
+	@Override
+	public Booking readyToChargeBooking(Booking b) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
