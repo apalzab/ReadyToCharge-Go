@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>ReadyToCharge&amp;GO</title>
+    <meta name="description" content="Ready To Charge And Go!">
+    <meta name="aitor" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="/readyToChargeIcon.ico">
+    <!-- CSS dependencies-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Les Styles -->
+    <link rel="stylesheet" href="static/css/main.css" type="text/css">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+  <div class="wrap">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar-inner">
+          <nav>
+            <a class="brand cursorPointer" style="margin-left:10px" href="/">ReadyToCharge&amp;Go</a>
+            <nav class="nav-collapse collapse">
+              <ul id="navRef" class="nav">
+                <li class="cursorPointer" id="newUser" style="display: none;"><a>¿Nuevo Usuario?</a></li>
+                <li class="cursorPointer hide"><a href="bookings.html">Mis Reservas</a></li>
+              </ul>
+            </nav>
+            <nav>
+              <form class="navbar-form pull-right login">
+                <input type="email" class="span2" placeholder="e-mail" name="userId" autofocus="" style="display: none;" required="">
+                <input type="password" class="span2" placeholder="contraseña" name="userPass" style="display: none;" required="">
+                <button class="btn" style="margin-right: 30px; display: none;">Iniciar Sesion</button>
+                <button class="btn dropdown-toggle user" data-toggle="dropdown" style="margin-right: 30px;">@apalzab</button>
+                <ul class="dropdown-menu">
+                  <li><a class="cursorPointer">Modificar perfil</a></li>
+                  <li class="divider"></li>
+                  <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+                </ul>
+              </form> 
+           </nav> 
+          </nav>
+        </nav>
+      </nav>
+
+
+     <!--ReadyToCharge-->
+      <div class="container readyToChargeBookings" style="display: block;">
+        <h1 class="title">Mis Reservas</h1>
+
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active">
+                <a href="#readytocharge" data-toggle="tab">ReadyToCharge</a>
+            </li>
+            <li>
+                <a href="#readytogo" data-toggle="tab">ReadyToGo</a>
+            </li>
+            <li>
+                <a href="#myBill" data-toggle="tab">Mi factura</a>
+            </li>
+            <li>
+                <a href="#points" data-toggle="tab">Puntos</a>
+            </li>
+            <li>
+                <a href="#statistics" data-toggle="tab">Estadísticas</a>
+            </li>
+        </ul>
+         <div id="my-tab-content" class="tab-content">
+             <div class="tab-pane active" id="readytocharge">
+                <table class="table bookingsInfo">
+                    <thead>
+                        <tr>
+                            <th><h4><strong>Estación de servicio</strong></h4></th>
+                            <th><h4><strong>Tipo de vehículo</strong></h4></th>
+                            <th><h4><strong>Fecha</strong></h4></th>
+                            <th><h4><strong>¿Has realizado la recarga?</strong></h4></th>
+                            <th><h4><strong>¿Puedes cancelar la recarga?</strong></h4></th>
+                        </tr>
+                    </thead>
+                </table>
+             </div>
+
+             <script id="rtcBookingsTemplate" type="text/x-jQuery-tmpl">
+                     {{if served == 'true'}}
+                        <tr class="success">
+                            <td>${chargeStation}</td>
+                            <td>${chargeType}</td>
+                            <td>${date}</td>
+                            <td><span class="badge badge-success">Sí</span></td>
+                        {{else}}
+                            <tr class="warning">
+                            <td>${chargeStation}</td>
+                            <td>${chargeType}</td>
+                            <td>${date}</td>
+                            <td><span class="badge badge-warning">No</span></td>
+                    {{/if}}
+                    {{if cancellable == 'true'}}
+                        <td><button class="btn btn-mini btn-danger" data-booking_id=${bookingId}>Cancelar</button></td>
+                        {{else}}
+                        <td><span class="badge badge-warning">No</span></td>
+                    {{/if}}
+                    </tr>
+             </script>
+            <div class="tab-pane" id="readytogo">
+                <table class="table">
+                    <tr class="error">
+                        <td>Servicio no disponible</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane" id="myBill">
+                <table class="table">
+                    <tr class="error">
+                        <td>Servicio no disponible</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane" id="points">
+                <table class="table">
+                    <tr class="error">
+                        <td>Servicio no disponible</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane" id="statistics">
+                <table class="table">
+                    <tr class="error">
+                        <td>Servicio no disponible</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+      </div> <!--readyToChargeBookings-->
+
+  <div class="push"></div>
+
+</div> <!--wrap-->
+
+<!--footer-->
+    <footer class="footer" style="background-color:#1B1B1B;">
+      <div class="container" style="margin:0 auto;">
+        <div class="row">
+          <div class="span2 offset2">
+            <h4>Compañía</h4>
+            <ul>
+              <li><a href="http://aitorpalacios.com/" target="_blank">Contacto / About me</a></li>
+            </ul>
+           </div>
+          <div class="span2 offset1">
+            <h4>Más Información</h4>
+            <ul>
+              <li><a href="others/help.html">Ayuda</a></li>
+              <li><a href="others/faq.html">FAQ</a></li>
+              <li><a href="others/support.html">Soporte</a></li>
+            </ul>
+          </div>
+          <div class="span2 offset1">
+              <h4>Síguenos</h4>
+              <ul>
+                <li><a href="http://es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1" target="_blank">Github</a></li>
+                <li><a href="es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1/" target="_blank">LinkedIn</a></li>
+              </ul>
+          </div>
+         </div>
+       </div>
+    </footer>
+
+
+    <!-- JQuery dependencies-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="static/js/scripts/jquery.md5.js"></script>
+    <!--jQuery cookie -->
+    <script src="static/js/cookie.js"></script>
+    <!--jQuery templates-->
+    <script src="static/js/jquery.tmpl.js"></script>
+    <!--ReadyToCharge&Go script -->
+    <script src="static/js/script.js"></script>
+    <script src="static/js/login.js"></script>
+    <script src="static/js/bookings.js"></script>
+    <!-- Bootstrap dependencies-->
+    <!--—[if lt IE 9]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="bootstrap/js/jquery-ui.min.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
+    <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
+
+</body>
+</html>

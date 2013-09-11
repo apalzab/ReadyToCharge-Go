@@ -5,125 +5,103 @@
   <title>ReadyToCharge&amp;GO</title>
   <meta name="description" content="Ready To Charge And Go!">
   <meta name="aitor" content="">
-  <!--—[if lt IE 9]-->
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
-  <!--[endif]—-->   
-  <link rel="shortcut icon" type="image/x-icon" href="static/images/chargeimg.png">
+  <link rel="shortcut icon" type="image/x-icon" href="static/img/chargeimg.png">
   <!-- CSS dependencies-->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
   <!-- Le Styles -->
-  <link rel="stylesheet" href="static/css/main.css" type="text/css">
   <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/main.css" type="text/css">
 </head>
 
 <body>
 
   <div class="wrap">
-    <div class="container">
-    <!--navbar-->
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <nav class="navbar-inner">
-          <nav class="container">
-            <a id="btnHome" class="cursorPointer brand" href="/">ReadyToCharge&amp;Go</a>
-            <nav class="nav-collapse collapse">
-              <ul id="navRef" class="nav">
-                <li class="cursorPointer" id="newUser"><a>¿Nuevo Usuario?</a></li>
-                <li class="cursorPointer hide"><a>Mis Reservas</a></li>
-              </ul>
-            </nav>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <nav class="navbar-inner">
             <nav>
-              <form class="navbar-form pull-right login">
-                <input type="email" class="span2" placeholder="e-mail" name="userId" autofocus="" style="" required="">
-                <input type="password" class="span2" placeholder="contraseña" name="userPass" style="" required="">
-                <button class="btn" style="">Iniciar Sesion</button>
-                <button class="btn dropdown-toggle user" data-toggle="dropdown" style="display:none"></button>
-                <ul class="dropdown-menu">
-                  <li><a class="modifyUser cursorPointer">Modificar perfil</a></li>
-                  <li class="divider"></li>
-                  <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+              <a class="brand cursorPointer" style="margin-left:10px" href="/">ReadyToCharge&amp;Go</a>
+              <nav class="nav-collapse collapse">
+                <ul id="navRef" class="nav">
+                  <li class="cursorPointer" id="newUser"><a>¿Nuevo Usuario?</a></li>
+                  <li class="cursorPointer hide"><a href="bookings.html">Mis Reservas</a></li>
                 </ul>
-              </form> 
-           </nav> 
+              </nav>
+              <nav>
+                <form class="navbar-form pull-right login">
+                  <input type="email" class="span2" placeholder="e-mail" name="userId" autofocus="" style="" required="">
+                  <input type="password" class="span2" placeholder="contraseña" name="userPass" style="" required="">
+                  <button class="btn" style="margin-right:30px">Iniciar Sesion</button>
+                  <button class="btn dropdown-toggle user" data-toggle="dropdown" style="display:none; margin-right:30px"></button>
+                  <ul class="dropdown-menu">
+                    <li><a class="cursorPointer">Modificar perfil</a></li>
+                    <li class="divider"></li>
+                    <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+                  </ul>
+                </form> 
+             </nav> 
+            </nav>
           </nav>
         </nav>
-      </nav>
 
-  <!--index-->
-      <div  class="container index" style="display:block;">
-        <h1 class="centeredTitle">ReadyToCharge&Go</h1>
-        <div class="informationRows">
-          <div  class="row">
-            <row>
-              <ul class="thumbnails">
-                <li class="span5">
-                  <a class="thumbnail">
-                    <img src="static/images/chargeimg.png"  class="img-rounded socketImg"></a>
-                </li>
-                <li class="span5">
-                  <a class="thumbnail">
-                    <img src="static/images/carimg.png"  class="img-rounded carImg" align="center">
-                  </a>
-                </li>
-              </ul>
-            </row>
-          </div>      
+    <!--index-->
+        <div class="container">
+          <h1 class="centeredTitle">ReadyToCharge&Go</h1>
           <div class="row">
-            <row>
-              <div class="span5">
-                <h2>ReadyToCharge</h2>
-                <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!
-                </p>
-                <p>
-                  <a id="btnReadyToCharge" class="btn btn-inverse" href="/ready_to_charge_information.html">Más ReadyToCharge! &raquo;</a>
-                </p>
-              </div>
-              <div class="span5">
-                <h2>ReadyToGo</h2>
-                <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! 
-                </p>
-                <p>
-                  <a id="btnReadyToGo" class="btn btn-inverse" href="/ready_to_go_information.html">Más ReadyToGo! &raquo;</a>
-                </p>
-              </div>
-            </row>
-         </div>
+            <div class="span5 offset1">
+              <a class="thumbnail" id="tooltip" data-toggle="tooltip" data-placement="left" title="" data-original-title="Accede a ReadyToCharge">
+              <img src="static/img/chargeimg.png" class="img-rounded socketImg"></a>
+            </div>
+            <div class="span5">
+              <a class="thumbnail" id="tooltip1" data-toggle="tooltip" data-placement="right" title="" data-original-title="ReadyToChargeToGo aún no se encuentra disponible...">
+              <img src="static/img/carimg.png"  class="img-rounded carImg" align="center">
+              </a>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="span5 offset1">
+              <h2>ReadyToCharge</h2>
+              <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!</p><br>
+              <a class="btn btn-inverse" href="/ready_to_charge_information.html">Más ReadyToCharge! &raquo;</a>
+            </div>
+            <div class="span5">
+              <h2>ReadyToGo</h2>
+              <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! </p>
+              <a class="btn btn-inverse" href="/ready_to_go_information.html">Más ReadyToGo! &raquo;</a>
+            </div>
+          </div>
         </div>
-      </div>
-
-    </div>
-
-  <div class="push"></div>
-  </div>
+    <div class="push"></div>
+  </div> <!--wrap-->
 
 <!--footer-->
-    <footer class="footer" style="background-color:#1B1B1B;">
-      <div class="container" style="margin:0 auto;">
-        <div class="row">
-          <div class="span2 offset2">
-            <h4>Compañía</h4>
-            <ul>
-              <li><a href="http://aitorpalacios.com/" target="_blank">Contacto / About me</a></li>
-            </ul>
-           </div>
-          <div class="span2 offset1">
-            <h4>Más Información</h4>
-            <ul>
-              <li><a href="others/help.html">Ayuda</a></li>
-              <li><a href="others/faq.html">FAQ</a></li>
-              <li><a href="others/support.html">Soporte</a></li>
-            </ul>
-          </div>
-          <div class="span2 offset1">
-              <h4>Síguenos</h4>
-              <ul>
-                <li><a href="http://github.com/apalzab" target="_blank">Github</a></li>
-                <li><a href="http://es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1" target="_blank">LinkedIn</a></li>
-              </ul>
-          </div>
+  <footer>
+    <div class="container" style="margin:0 auto;">
+      <div class="row">
+        <div class="span2 offset2">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="http://aitorpalacios.com/" target="_blank">Contacto / About me</a></li>
+          </ul>
          </div>
+        <div class="span2 offset1">
+          <h4>Más Información</h4>
+          <ul>
+            <li><a href="others/help.html">Ayuda</a></li>
+            <li><a href="others/faq.html">FAQ</a></li>
+            <li><a href="others/support.html">Soporte</a></li>
+          </ul>
+        </div>
+        <div class="span2 offset1">
+            <h4>Síguenos</h4>
+            <ul>
+              <li><a href="http://github.com/apalzab" target="_blank">Github</a></li>
+              <li><a href="http://es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
        </div>
-    </footer>
+     </div>
+  </footer>
 
 <!-- modal constructing -->
     <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
@@ -212,17 +190,20 @@
           </div>
       </div>
 
-    <!-- JQuery dependencies-->
+    <!--JQuery dependencies-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="static/js/scripts/jquery.md5.js"></script>
     <!--jQuery cookie -->
     <script src="static/js/cookie.js"></script>
-    <!--ReadyToCharge&Go script -->
+    <!--ReadyToCharge&Go script-->
     <script src="static/js/login.js"></script>
     <script src="static/js/script.js"></script>
-    <!-- Bootstrap dependencies-->
+    <!--Bootstrap dependencies-->
+    <!--[if lt IE 9]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
     <script src="bootstrap/js/jquery-ui.min.js"></script>
     <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
     <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>

@@ -1,9 +1,8 @@
 $(document).ready(function() {
   $('nav li:eq(0)').click(newUserModalShow);
 
-  $('div.index img.socketImg').click(function(e) {
-    e.preventDefault();
-    if ($.cookie('ReadyToChargeAndGo') != null) {
+  $('div img.socketImg').click(function() {
+    if (localStorage.getItem('user') != null) {
         var url = "/ready_to_charge.html";
         $(location).attr('href',url);
       } else {
@@ -11,9 +10,12 @@ $(document).ready(function() {
       }
   });
 
-  $('div.index img.carImg').click(function() {
+  $('div img.carImg').click(function() {
     $('div.modal.constructing').modal('show');
   });
+
+  $('#tooltip').tooltip();
+  $('#tooltip1').tooltip();
 
   $('form.newUser input[type="password"]:eq(0)').on('keyup', function() {
     checkPass();
@@ -75,27 +77,27 @@ $(document).ready(function() {
 
   function postNewUser() {
      var newUser = {
-        userName: $('form.newUser input:eq(0)').val(),
-        userLastName: $('form.newUser input:eq(1)').val(),
-        userId: $('form.newUser input[type="email"]').val(),
-        userPass: $.md5($('form.newUser input[type="password"]:eq(0)').val()),
-        userAge: $('form.newUser input[type="number"]').val(),
-        userSex: $('form.newUser select').val()
+        name: $('form.newUser input:eq(0)').val(),
+        lastName: $('form.newUser input:eq(1)').val(),
+        id: $('form.newUser input[type="email"]').val(),
+        pass: $.md5($('form.newUser input[type="password"]:eq(0)').val()),
+        age: $('form.newUser input[type="number"]').val(),
+        sex: $('form.newUser select').val()
          };
-         if  ( (newUser.userName && newUser.userLastName && newUser.userPass && newUser.userAge && newUser.userSex != "") && checkPass() == true && isEmail(newUser.userId) ) {
+         if  ( (newUser.name && newUser.lastName && newUser.pass && newUser.age && newUser.sex != "") && checkPass() == true && isEmail(newUser.id) ) {
              $('div.modal.newUser').modal('hide');
              progressBarStart();
              $.ajax({
-                  url: '/app/Users',
+                  url: '/app/users',
                   type: 'POST',
                   data: JSON.stringify(newUser),
                   contentType: 'application/json; charset=utf-8',
                   async: false,
                   success: function(data, textStatus, jqXHR) {
-                    $('div.modal.welcome div:eq(1)').append('<p>Te hemos enviado un correo a la dirección: '  + newUser.userId + ' . Por favor confirma desde tu correo que quieres unirte a nosotros.</p>');
-                    $('div.welcome').modal('show');
-                    $('form.newUser')[0].reset();
-                    progressBarEnd();
+                      $('div.modal.welcome div:eq(1)').html('<p>' + jqXHR.responseText + '</p>');
+                      $('div.welcome').modal('show');
+                      $('form.newUser')[0].reset();
+                      progressBarEnd();
                   },
                   error: function(jqXHR, textStatus, errorThrown){
                     alert("!Ha ocurrido un error! Por favor, vuelve a intentarlo." + jqXHR.responseText);

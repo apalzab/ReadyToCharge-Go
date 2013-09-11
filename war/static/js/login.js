@@ -1,15 +1,12 @@
-if ($.cookie('ReadyToChargeAndGo') != null) {
-    var str = $.cookie('ReadyToChargeAndGo');
-    var ret = str.split(':');
-    var id = ret[0];
-    var pass = ret[1];
+if (JSON.parse(localStorage.getItem('user')) != null) {
     $('form.login input[type="email"]').hide();
     $('form.login input[type="password"]').hide();
     $('form.login button:eq(0)').hide();
     $('form.login button:eq(1)').hide();
-    id = id.split('@');
     $('#newUser').hide();
-    $('form.login button.user').text("@"+id[0]).show();
+    $('nav li:eq(1)').show();
+    var id = JSON.parse(localStorage.getItem('user')).id.split("@");
+    $('form.login button.user').text("@" + id[0]).show();
   } else {
       $('form.login input[type="email"]').show();
       $('form.login input[type="password"]').show();
@@ -30,7 +27,7 @@ if ($.cookie('ReadyToChargeAndGo') != null) {
   });
 
   $('form.login .logOut').click(function() {
-    $.removeCookie('ReadyToChargeAndGo');
+    localStorage.removeItem('user');
     $('form.login button:eq(1)').val("").hide();
     $('form.login input[type="email"]').val("").show('slow');
     $('form.login input[type="password"]').val("").show('slow');
@@ -42,27 +39,26 @@ if ($.cookie('ReadyToChargeAndGo') != null) {
 
   function loginUser(user,pass) {
     progressBarStart();
-    if (user==="" || pass==="") {
+    if (user === "" || pass === "") {
       $('div.modal.userError').modal("show");
       progressBarEnd();
     } else {
-        var tok = user + ':' + pass;
-        var hash = btoa(tok);
-        $.cookie.raw = true;
-        $.cookie('ReadyToChargeAndGo', tok, { expires: 7 });
         $.ajax({
-            url: '/app/Users/',
+            url: '/app/users/',
             type: 'GET',
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader('Authorization', makeBaseAuth(user, pass));
+            },
             success: function (data) {
               $('form.login input[type="email"]').hide();
               $('form.login input[type="password"]').hide();
               $('form.login button:eq(0)').hide();
               $('#newUser').hide();
-              var str = $.cookie('ReadyToChargeAndGo');
-              var ret = str.split(':');
-              var id = ret[0];
-              id = id.split('@');
-              $('form.login button.user').text("@"+id[0]).show();
+              data.pass = pass;
+              localStorage.setItem("user", JSON.stringify(data));
+              var id = user.split('@');
+              $('form.login button.user').text("@" + id[0]).show();
+              $('#myBookings').show();
               progressBarEnd();
               },
             error: function(){
@@ -77,14 +73,30 @@ if ($.cookie('ReadyToChargeAndGo') != null) {
     return false;
   }
 
+
+  function getUser () {
+    var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+    // Put the object into storage
+    localStorage.setItem('testObject', JSON.stringify(testObject));
+    // Retrieve the object from storage
+    var retrievedObject = localStorage.getItem('testObject');
+    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+  }
+
+  function makeBaseAuth(user, password) {
+    var tok = user + ':' + password;
+    var hash = btoa(tok);
+  return "Basic " + hash;
+}
+
   function progressBarStart(){
     $('.progressBar').remove();
     $('.navbar').after('<div class="progressBar"><div class="progress progress-striped active title"><div class="bar" ></div></div><p align="center">Solicitando datos....contactando con el servidor........esto puede durar un tiempo....</p></div>');
-      var cont=0;
-      for (i=0; i<3000; i++)
+      var cont = 0;
+      for (i = 0; i < 3000; i++)
         {
         $('.progress .bar').css({'width': cont});
-          cont=cont+0.3;
+          cont = cont+0.3;
         }
     }
 

@@ -1,4 +1,12 @@
-<!-- Indices written at Fri, 7 Jun 2013 21:31:55 CEST -->
+<!-- Indices written at Wed, 11 Sep 2013 00:59:27 CEST -->
 
-<datastore-indexes/>
+<datastore-indexes>
 
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Booking-RTC" ancestor="false" source="auto">
+        <property name="chargeStation" direction="asc"/>
+        <property name="chargeType" direction="asc"/>
+        <property name="date" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>
