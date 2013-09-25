@@ -6,13 +6,10 @@ $(document).ready(function(){
     getBookings();
 
 
-    $('.readyToChargeBookings').delegate('.bookingsInfo .btn-danger',"click", function() {
+    $('.bookings').delegate('.bookingsInfo .btn-danger',"click", function() {
     if (window.confirm("Vas a cancelar una reserva. ¿Estás seguro de que quieres continuar?"))
       cancelBooking($(this).data("booking_id"));
   });
-
-
-
 
 
    function getBookings() {
@@ -23,6 +20,7 @@ $(document).ready(function(){
                  beforeSend: function (xhr) {
                     var retrievedUser = JSON.parse(localStorage.getItem('user'));
                     xhr.setRequestHeader('Authorization', makeBaseAuth(retrievedUser.id, retrievedUser.pass));
+                    $('section').hide();
                     progressBarStart();
                  },
                  success: function (bookings, textStatus, jqXHR) {
@@ -41,9 +39,11 @@ $(document).ready(function(){
                     progressBarEnd();
                  }
            });
+  $('section').show();
    }
 
    function cancelBooking(bookingId){
+    progressBarStart();
          $.ajax({
                  url: '/app/rtc-bookings/' + bookingId,
                  type: 'DELETE',

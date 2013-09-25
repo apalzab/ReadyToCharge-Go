@@ -7,84 +7,140 @@
   <meta name="aitor" content="">
   <link rel="shortcut icon" type="image/x-icon" href="static/img/chargeimg.png">
   <!-- CSS dependencies-->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  <link href="static/bootswatch/bootstrap-min.css" rel="stylesheet">
+  <link href="static/bootswatch/bootstrap.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
   <!-- Le Styles -->
-  <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link rel="stylesheet" href="static/css/main.css" type="text/css">
+
 </head>
 
 <body>
+      <div class="wrap">
 
-  <div class="wrap">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <nav class="navbar-inner">
-            <nav>
-              <a class="brand cursorPointer" style="margin-left:10px" href="/">ReadyToCharge&amp;Go</a>
-              <nav class="nav-collapse collapse">
-                <ul id="navRef" class="nav">
-                  <li class="cursorPointer" id="newUser"><a>¿Nuevo Usuario?</a></li>
-                  <li class="cursorPointer hide"><a href="bookings.html">Mis Reservas</a></li>
-                </ul>
-              </nav>
-              <nav>
-                <form class="navbar-form pull-right login">
-                  <input type="email" class="span2" placeholder="e-mail" name="userId" autofocus="" style="" required="">
-                  <input type="password" class="span2" placeholder="contraseña" name="userPass" style="" required="">
-                  <button class="btn" style="margin-right:30px">Iniciar Sesion</button>
-                  <button class="btn dropdown-toggle user" data-toggle="dropdown" style="display:none; margin-right:30px"></button>
-                  <ul class="dropdown-menu">
-                    <li><a class="cursorPointer">Modificar perfil</a></li>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div>
+            <div class="navbar-header">
+              <a href="/" class="navbar-brand">ReadyToCharge&Go</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+              <ul class="nav navbar-nav">
+                <li style="display:none;"><a href="ready-to-charge-go.html">Haz una reserva</a></li>
+                <li style="display:none;"><a href="bookings.html">Mis Reservas</a></li>
+              </ul>
+               <ul class="nav navbar-nav navbar-right">
+                <li style="display:none;"><a id="sign-in-nav" class="pointer">Nuevo usuario</a></li>
+                <li style="display:none;"><a id="login-nav" class="pointer">Iniciar sesión</a></li>
+                <li class="dropdown"style="display:none;":>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropdown-text">apalzab</a>
+                  <ul class="dropdown-menu" aria-labelledby="download">
+                    <li class="disabled"><a>Modificar perfil</a></li>
                     <li class="divider"></li>
-                    <li><a class="logOut cursorPointer">Cerrar Sesión</a></li>
+                    <li id="log-out"><a>Cerrar sesión</a></li>
                   </ul>
-                </form> 
-             </nav> 
-            </nav>
-          </nav>
-        </nav>
-
-    <!--index-->
-        <div class="container">
-          <h1 class="centeredTitle">ReadyToCharge&Go</h1>
-          <div class="row">
-            <div class="span5 offset1">
-              <a class="thumbnail" id="tooltip" data-toggle="tooltip" data-placement="left" title="" data-original-title="Accede a ReadyToCharge">
-              <img src="static/img/chargeimg.png" class="img-rounded socketImg"></a>
-            </div>
-            <div class="span5">
-              <a class="thumbnail" id="tooltip1" data-toggle="tooltip" data-placement="right" title="" data-original-title="ReadyToChargeToGo aún no se encuentra disponible...">
-              <img src="static/img/carimg.png"  class="img-rounded carImg" align="center">
-              </a>
-            </div>
-          </div> 
-          <div class="row">
-            <div class="span5 offset1">
-              <h2>ReadyToCharge</h2>
-              <p>Sistema de gestión de recargas de coches, motos y bicicletas eléctricas. Desde aquí podrás realizar reservas para recargar tu vehículo!</p><br>
-              <a class="btn btn-inverse" href="/ready_to_charge_information.html">Más ReadyToCharge! &raquo;</a>
-            </div>
-            <div class="span5">
-              <h2>ReadyToGo</h2>
-              <p>Sistema de gestión de alquiler de coches eléctricos. Alquila un coche de manera sencilla y comparte tu ruta con otros usuarios para reducir costes y contaminación! </p>
-              <a class="btn btn-inverse" href="/ready_to_go_information.html">Más ReadyToGo! &raquo;</a>
+               </li>
             </div>
           </div>
-        </div>
-    <div class="push"></div>
-  </div> <!--wrap-->
+        </nav>
 
-<!--footer-->
+        <section class="header">
+          <div class="container">
+              <div class="col-lg-12">
+                <ul>
+                  <header><h1>ReadyToCharge&Go</h1></header>
+                  <li data-scroll=".how-it-works">Cómo funciona</li>
+                  <li data-scroll=".advantages">Ventajas</li>
+                  <li data-scroll=".sign-up">Únete</li>
+                </ul>
+              </div>
+          </div>
+        </section>
+
+        <section class="top">
+          <div class="container">
+              <article class="col-lg-5">
+                <h1>ReadyToCharge</h1>
+                <p>Bienvenido a la era de las recargas de los vehículos eléctricos. Gracias a ReadyToCharge podrás reservar a la hora que quieras en la estación que mejor te venga una plaza para recargar tu vehículo eléctrico.</p>
+                <img src="static/img/socket-top.png" class="img-responsive col-md-offset-3">
+              </article>
+              <article class="col-lg-5">
+                <h1>ReadyToGo</h1>
+                <p>Comparte, ahorra y disfruta con una nueva forma de moverse. Alquila un coche, publica tu ruta si quieres y prepárate para ahorrar dinero. Únete a nosotros y comienza a disfrutar de las ventajas.</p>
+                <img src="static/img/car-top.png" class="img-responsive col-md-offset-3">
+              </article>
+          </div>
+        </section>
+
+        <section class="how-it-works">
+          <div class="container">
+            <header><h1>Cómo funciona</h1></header> 
+              <article class="col-lg-5">
+                <ul>
+                  <header><h2>ReadyToCharge</h2></header>
+                  <li>1. <a>Solicita los horarios disponibles en la estación de carga que desees.</a></li>
+                  <li>2. <a>Realiza la reserva a una hora y en una estación determinada para recargar tu vehículo eléctrico.</a></li>
+                  <li>3. <a>Ve con tu vehículo a la estación de carga y a la hora en la que has realizado la reserva.</a></li>
+                  <li>4. <a>No pierdas el tiempo, asegura tu recarga.</a></li>
+              </ul>
+            </article>
+            <article class="col-lg-5">
+              <ul>
+                <header><h2>ReadyToGo</h2></header>
+                <li>1. <a>Reserva el vehículo que más se adapte a tus necesidades.</a></li>
+                <li>2. <a>Establece la ruta que vas a realizar en el mapa si quieres publicarla para que otros usuarios puedan verla.</a></li>
+                <li>3. <a>Las personas que estén interesadas te pedirán que les recojas en un punto de la ruta.</a></li>
+                <li>4. <a>Ahorra dinero y conoce a gente nueva.</a></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="advantages">
+          <div class="container">
+            <header><h1>Ventajas</h1></header>
+          </div>
+        </section>
+
+        <section class="sign-up">
+          <div class="container">
+            <header><h1>Únete</h1></header>
+            <article class="col-lg-6">
+              <section>
+                <header>
+                  <h3>Preparados</h3>
+                  <h3>Listos</h3>
+                  <h3>ReadyToCharge&Go</h3>
+                </header>
+                <button id="sign-in-bottom" type="button" class="btn btn-success">CREAR UNA CUENTA</button>
+              </section>
+            </article>
+            <article class="col-lg-6">
+              <section>
+                <header>
+                  <h3>Ahorra</h3>
+                  <h3>Comparte</h3>
+                  <h3>Disfruta</h3>
+              </header>
+              <button id="login-bottom" type="button" class="btn btn-warning">INICIA SESIÓN</button>
+              </section>
+            </article>
+          </div>
+        </section>
+
+      <div class="push"></div>
+
+    </div> <!--wrap-->
+
+  <!--footer-->
   <footer>
-    <div class="container" style="margin:0 auto;">
-      <div class="row">
-        <div class="span2 offset2">
+        <div class="col-lg-3 col-lg-offset-1">
           <h4>Compañía</h4>
           <ul>
             <li><a href="http://aitorpalacios.com/" target="_blank">Contacto / About me</a></li>
+            <li></li>
           </ul>
          </div>
-        <div class="span2 offset1">
+        <div class="col-lg-3 col-lg-offset-1">
           <h4>Más Información</h4>
           <ul>
             <li><a href="others/help.html">Ayuda</a></li>
@@ -92,120 +148,115 @@
             <li><a href="others/support.html">Soporte</a></li>
           </ul>
         </div>
-        <div class="span2 offset1">
+        <div class="col-lg-3 col-lg-offset-1">
             <h4>Síguenos</h4>
             <ul>
               <li><a href="http://github.com/apalzab" target="_blank">Github</a></li>
               <li><a href="http://es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1" target="_blank">LinkedIn</a></li>
             </ul>
         </div>
-       </div>
-     </div>
   </footer>
 
-<!-- modal constructing -->
-    <div class="modal hide fade constructing" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-        </button>
-        <h3 id="myModalLabel">ReadyToCharge&Go !!!</h3>
-      </div>
-      <div class="modal-body"><p>Ey, vamos todo lo rápido que podemos! Esperamos tener disponible el contenido solicitado en un periodo de tiempo indeterminado.</p><p>Gracias por vuestra paciencia.</p>
-      </div>
-     <div class="modal-footer">
-      <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK</button>
-     </div>
-    </div>
-
-    <!-- modal welcome -->
-    <div class="modal hide fade welcome" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-        </button>
-        <h3>¡Bienvenido a bordo!</h3>
-      </div>
-      <div class="modal-body">
-      </div>
-     <div class="modal-footer">
-      <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK</button>
-     </div>
-    </div>
-
-
-<!-- modal new user -->
-      <div class="modal hide fade newUser" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
+  <!-- modal new-user -->
+  <div class="modal fade new-user" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-          </button>
-          <h3 id="myModalLabel">Bienvenido</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">¡Regístrate!</h1>
         </div>
-        <form class="modal-body newUser">
-          <ul>
-            <li><label>Nombre</label><input class="span2" type="text" autofocus required></li>
-            <li><label>Apellidos</label><input class="span2" type="text" required></li>
-            <li><label>E-mail</label><input class="span2" type="email" required></li>
-            <li><label>Sexo</label><select><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></li>
-            <li><label>Edad</label><input value="18" class="span2" type="number" min="18" max="120" required></li>
-            <li><label>Contraseña</label><input class="span2" type="password" required><i class="icon-remove"></i></li>
-            <li style="display:none;"><label>Repite la contraseña </label><input class="span2" type="password" required><i class="icon-remove"></i>
+          <form class="modal-body">
+            <ul>
+            <li><label>Nombre</label><input class="form-control" type="text" autofocus="" required=""></li>
+            <li><label>Apellidos</label><input class="form-control" type="text" required=""></li>
+            <li><label>E-mail</label><input class="form-control" type="email" required=""></li>
+            <li><label>Contraseña</label><input class="form-control" type="password" required=""></li>
+            <li style="display:none;"><label>Repite la contraseña</label><input class="form-control" type="password" required=""></i>
             </li>
           </ul>
-        </form>
-        <div class="modal-footer">
-          <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-          <button class="btn btn-success">Crear Usuario</button>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button id="create-user" type="button submit  " class="btn btn-primary">Crear usuario</button>
         </div>
-    </div>
+          </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-<!-- modal wrong user -->
-        <div class="modal hide fade userError" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-            </button>
-            <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
+  <!-- modal welcome -->
+  <div class="modal fade welcome" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">¡Bienvenido a bordo!</h1>
+        </div>
+          <div class="modal-body">
           </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+   <!-- modal login -->
+  <div class="modal fade login" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Inicio de sesión</h1>
+        </div>
+          <form class="modal-body">
+            <ul>
+              <li><label>Nombre de usuario</label><input class="form-control" type="email" required autofocus></li>
+              <li><label>Contraseña</label><input class="form-control" type="password" required></li>
+          </ul>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button id="login-modal" type="button submit" class="btn btn-primary">Iniciar sesión</button>
+          </div>
+          </form>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+    <!-- modal error-login -->
+  <div class="modal fade error-login" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Ups... algo ha salido mal</h1>
+        </div>
           <div class="modal-body">
             <p>Lo sentimos pero no hemos encontrado a ningún usuario que concuerde con los datos que has introducido.</p>
             <p>Por favor, vuelve a intentarlo.</p>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK
-            </button>
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
         </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-<!--modal user not logged-->
-        <div class="modal hide fade login" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true" style="display: none;">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x
-            </button>
-            <h3 id="myModalLabel">ReadyToCharge&Go informa de que...</h3>
-          </div>
-          <div class="modal-body">
-            <p>Lo sentimos pero tienes que iniciar sesión para poder acceder.</p>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">OK
-            </button>
-          </div>
-      </div>
+
 
     <!--JQuery dependencies-->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="static/js/scripts/jquery.md5.js"></script>
-    <!--jQuery cookie -->
-    <script src="static/js/cookie.js"></script>
-    <!--ReadyToCharge&Go script-->
-    <script src="static/js/login.js"></script>
-    <script src="static/js/script.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <!--Bootstrap dependencies-->
+
+    <script src="static/bootstrap-3/js/transition.js"></script>
+    <script src="static/bootstrap-3/js/modal.js"></script>
+    <script src="static/bootstrap-3/dist/js/bootstrap.min.js"></script>
+    <script src="static/js/index.js"></script>
+
+    <script src="static/js/jquery.md5.js"></script>
+    <script src="static/js/login.js"></script>
+    <script src="static/js/cookie.js"></script>
     <!--[if lt IE 9]-->
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/bootstrap-modal.js"></script>
-    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="bootstrap/js/jquery-ui.min.js"></script>
-    <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
-    <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
 </body>
 </html>

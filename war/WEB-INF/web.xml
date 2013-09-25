@@ -40,4 +40,18 @@
 	  <servlet-name>SystemServiceServlet</servlet-name>
 	  <url-pattern>/_ah/spi/*</url-pattern>
  </servlet-mapping>
+ 
+ 
+ 
+ <servlet>
+<servlet-name>GAEJCronServlet</servlet-name>
+<servlet-class>com.gaejexperiments.cron.GAEJCronServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>GAEJCronServlet</servlet-name>
+<url-pattern>/cron/gaejcronjob</url-pattern>
+</servlet-mapping>
+ 
+ 
 </web-app>

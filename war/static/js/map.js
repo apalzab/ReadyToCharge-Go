@@ -16,7 +16,7 @@ function initialize() {
   var trafficLayer = new google.maps.TrafficLayer();
   trafficLayer.setMap(map);
 
-  var socket = new google.maps.MarkerImage('static/img/charge_map.png');
+  var socket = new google.maps.MarkerImage('static/img/charge-map.png');
   var user = new google.maps.MarkerImage('static/img/user.png');
 
     // Adding markers to the map
