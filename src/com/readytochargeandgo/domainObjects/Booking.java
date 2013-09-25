@@ -1,5 +1,7 @@
 package com.readytochargeandgo.domainObjects;
 
+import java.util.Date;
+
 import javax.ws.rs.Consumes;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -8,9 +10,7 @@ import com.google.appengine.api.datastore.Key;
 @XmlRootElement
 public class Booking {
 	
-	
 	String userId;
-	
 	String chargeType;
 	String chargeStation;
 	String socketId;
@@ -19,16 +19,41 @@ public class Booking {
 	String year;
 	String month;
 	String day;
-	long bookingId;
+	String date;
+	String served;
+	String cancellable;
 	
-	
-	public long getBookingId() {
+	public String getCancellable() {
+		return cancellable;
+	}
+
+	public void setCancellable(String cancellable) {
+		this.cancellable = cancellable;
+	}
+
+	public String getServed() {
+		return served;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date.toString();
+	}
+
+	String bookingId;
+		
+
+	public String getBookingId() {
 		return bookingId;
 	}
 	
-	public void setBookingId(long l) {
-		this.bookingId = l;
+	public void setBookingId(String id) {
+		this.bookingId = id;
 	}
+	
 	public String getMinutes() {
 		return minutes;
 	}
@@ -83,7 +108,11 @@ public class Booking {
 	public void setSocketId(String socketId) {
 		this.socketId = socketId;
 	}
-	
+
+	public void setServed(String served) {
+		this.served = served;
+	}
+
 
 	
 	

@@ -13,31 +13,34 @@ public class AvailableTime {
 	private String day;
 	private String hour;
 	private String minutes;
-	private String key;
-	
-	
-	
-	
-	public String getKey() {
-		return key;
+	private String chargeStation;
+	private String chargeType;
+
+	public String getChargeStation() {
+		return chargeStation;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setChargeStation(String chargeStation) {
+		this.chargeStation = chargeStation;
 	}
 
-	public AvailableTime()
-	{
-		
+	public String getChargeType() {
+		return chargeType;
 	}
+
+	public void setChargeType(String chargeType) {
+		this.chargeType = chargeType;
+	}
+
+	public AvailableTime() {}
 	
 	public AvailableTime(String year,String month,String day,String hour,String minutes)
 	{
-		this.year=year;
-		this.month=month;
-		this.day=day;
-		this.hour=hour;
-		this.minutes=minutes;
+		this.year = year;
+		this.month = month;
+		this.day = day;
+		this.hour = hour;
+		this.minutes = minutes;
 	}
 
 	public String getYear() {
