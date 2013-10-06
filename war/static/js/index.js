@@ -68,26 +68,30 @@ $(document).ready(function(){
          };
          if  ( (newUser.name && newUser.lastName && newUser.pass != "") && checkPass() == true && isEmail(newUser.id) ) {
              $('.modal.new-user').modal('hide');
-             progressBarStart();
              $.ajax({
                   url: '/app/users',
                   type: 'POST',
                   data: JSON.stringify(newUser),
                   contentType: 'application/json; charset=utf-8',
                   async: false,
+                  beforeSend: function () {
+                  $('.modal.login').modal("hide");
+                  $('section').hide();
+                  progressBarStart();
+                },
                   success: function(data, textStatus, jqXHR) {
                       $('.modal.welcome .modal-body').html('<p>' + jqXHR.responseText + '</p>');
                       $('.modal.welcome').modal('show');
                       $('.modal.new-user .modal-body')[0].reset();
                       $('.modal.new-user li:eq(6)').hide();
-                      $('.modal.new-user i:eq(0)').removeClass('glyphicon glyphicon-ok');
-                      $('.modal.new-user i:eq(0)').addClass('glyphicon glyphicon-remove');
+                      $('section').show();
                       progressBarEnd();
                   },
                   error: function(jqXHR, textStatus, errorThrown){
                     alert("!Ha ocurrido un error! Por favor, vuelve a intentarlo." + jqXHR.responseText);
                     $('.modal.new-user').modal('hide');
                     $('.modal.new-user .modal-body')[0].reset();
+                    $('section').show();
                     progressBarEnd();
                   }
             });

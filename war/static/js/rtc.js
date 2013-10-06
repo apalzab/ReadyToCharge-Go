@@ -13,7 +13,7 @@ $(document).ready(function () {
       progressBarEnd();
     });
 
-    $('section.timestable').delegate('#timesTable .btn-danger',"click", function() {
+    $('section.timestable').delegate('#timesTable .btn-success',"click", function() {
       if (window.confirm("Vas a realizar una reserva. ¿Estás seguro de que quieres continuar?"))
         book($(this).data("chargestation"), $(this).data("chargetype"), $(this).data("hour"), $(this).data("minutes"), $(this).data("day"), $(this).data("month"), $(this).data("year"));
     });
@@ -36,7 +36,7 @@ $(document).ready(function () {
                 type: 'GET',
                 success: function (availableTimes) {
                   $('section.timestable').empty();
-                  $('section.timestable').append('<table id="timesTable" class="table table-hover timestable"><thead><tr><th><h3><strong>Estación de servicio</strong></h3></th><th><h3><strong>Tipo de vehículo</strong></3></th><th><h3><strong>Fecha</strong></h3></th><th><h3><strong>Hora</strong></h3></th><th><h3><strong>¡Reservar!</strong></h3></th><th><h3><button id="change-preferences" class="btn btn-small btn-warning">Cambiar preferencias</button></h3></th></tr></thead></table>');
+                  $('section.timestable').append('<table id="timesTable" class="table table-hover timestable"><thead><tr><th><h3><strong>Estación de servicio</strong></h3></th><th><h3><strong>Tipo de vehículo</strong></3></th><th><h3><strong>Fecha</strong></h3></th><th><h3><strong>Hora</strong></h3></th><th><h3><strong>¡Reservar!</strong></h3></th><th><h3><button id="change-preferences" class="btn btn-small btn-blue">Cambiar preferencias</button></h3></th></tr></thead></table>');
                   $('section.timestable').show('slow');
                   if (availableTimes.length != 0) {
                     $(availableTimes).each(function(index, availableTime) {
@@ -89,7 +89,7 @@ $(document).ready(function () {
              success: function (booking, textStatus, jqXHR) {
                $('#timesTable').hide();
                $("#bookingTemplate").tmpl(booking).appendTo('#rtcBooking table tbody');
-               $('#rtcBooking').after('<section class="container"><div class="col-md-12 map" id="map_canvas"></div><div id="directionsPanel"></div></section>');
+               $('#rtcBooking').after('<section class="container"><div class="col-md-12 map" id="map_canvas"></div><div id="directionsPanel" class="directionsPanel"></div></section>');
                $('#rtcBooking').show();
                $('html, body').animate({ scrollTop: 0 }, 'slow');
                progressBarEnd();

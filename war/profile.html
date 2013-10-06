@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>ReadyToCharge&amp;GO</title>
+  <meta name="description" content="Ready To Charge And Go!">
+  <meta name="aitor" content="">
+  <link rel="shortcut icon" type="image/x-icon" href="static/img/chargeimg.png">
+  <!-- CSS dependencies-->
+  <link href="static/bootswatch/bootstrap-min.css" rel="stylesheet">
+  <link href="static/bootswatch/bootstrap.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+  <!-- Le Styles -->
+  <link rel="stylesheet" href="static/css/main.css" type="text/css">
+
+</head>
+
+<body>
+      <div class="wrap profile">
+
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+              <a href="./" class="navbar-brand">ReadyToCharge&Go</a>
+              <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main" style="height: 0.800000011920929px;">
+              <ul class="nav navbar-nav">
+                    <li style="display:none;"><a href="ready-to-charge-go.html">Haz una reserva</a></li>
+                    <li style="display:none;"><a href="bookings.html">Mis Reservas</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li style="display:none;"><a id="sign-in-nav" class="pointer">Nuevo usuario</a></li>
+                <li style="display:none;"><a id="login-nav" class="pointer">Iniciar sesión</a></li>
+                <li class="dropdown"style="display:none;":>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropdown-text">apalzab</a>
+                  <ul class="dropdown-menu" aria-labelledby="download">
+                    <li><a href="profile.html">Modificar perfil</a></li>
+                    <li class="divider"></li>
+                    <li id="log-out"><a>Cerrar sesión</a></li>
+                  </ul>
+               </li>
+              </ul>
+            </div>
+        </div>
+
+
+
+            <section class="profile-header">
+                <div class="col-lg-12">
+                    <header>
+                        <h1>Aitor Palacios</h1>
+                    </header>
+                    <!-- <img src="static/img/profile.jpg" class="img-circle"> -->
+                </div>
+            </section>
+
+            <section class="container profile-info">
+                <div class="row">
+
+                    <section class="col-lg-4 col-lg-offset-1 basic-info box">
+                    <header><h1>Información básica</h1></header>
+                    <script id="basic-info-template" type="text/x-jQuery-tmpl">
+                        <ul>
+                            <li><h5>Nombre completo</h5></li>
+                            <li><p>${name} ${lastName}</p></li>
+                            <li><h5>ID usuario</h5></li>
+                            <li><p>${id}</p></li>
+                            <li><h5>Sexo</h5></li>
+                            <li><p>${sex}</p></li>
+                            <li><h5>Edad</h5></li>
+                            <li><p>${age}</p></li>
+                            <li><h5>Dirección de correo alternativa</h5></li>
+                            <li><p>${alternative_mail}</p></li>
+                            <li><a data-modify="basic-info">Modificar</a></li>
+                        </ul>
+                        
+                    </script>
+                </section>
+
+                <section class="col-lg-4 col-lg-offset-2 public-info box">
+                        <header><h1>Información pública</h1></header>
+                        <script id="public-info-template" type="text/x-jQuery-tmpl">
+                            <ul>
+                                <li><h5>Información básica</h5></li>
+                                {{if share_basic_info == 'true'}}
+                                    <li><p>Información visible para otros <span class="glyphicon glyphicon-ok"></p></li>
+                                    {{else}}
+                                        <li><p>Nadie puede ver la información <span class="glyphicon glyphicon-remove"></p></li>
+                                {{/if}}
+                                <li><h5>Más información</h5></li>
+                                {{if share_more_info == 'true'}}
+                                    <li><p>Información visible para otros <span class="glyphicon glyphicon-ok"></p></li>
+                                    {{else}}
+                                        <li><p>Nadie puede ver la información <span class="glyphicon glyphicon-remove"></p></li>
+                                {{/if}}
+                                <li><h5>Comentarios sobre ti</h5></li>
+                                {{if share_comments == 'true'}}
+                                    <li><p>Información visible para otros <span class="glyphicon glyphicon-ok"></p></li>
+                                    {{else}}
+                                        <li><p>Nadie puede ver la información <span class="glyphicon glyphicon-remove"></p></li>
+                                {{/if}}
+                                <li><h5>Amigos</h5></li>
+                                {{if share_friends == 'true'}}
+                                    <li><p>Información visible para otros <span class="glyphicon glyphicon-ok"></p></li>
+                                    {{else}}
+                                        <li><p>Nadie puede ver la información <span class="glyphicon glyphicon-remove"></p></li>
+                                {{/if}}
+                                <li><h5>Información de rutas realizadas</h5></li>
+                                {{if share_routes == 'true'}}
+                                    <li><p>Información visible para otros <span class="glyphicon glyphicon-ok"></p></li>
+                                    {{else}}
+                                        <li><p>Nadie puede ver la información <span class="glyphicon glyphicon-remove"></p></li>
+                                {{/if}}
+                                <li><a data-modify="public-info">Modificar</a></li>
+                            </ul>
+                    </script>
+                </section>
+
+                </div>
+
+                <div class="row">
+
+                    <section class="col-lg-4 col-lg-offset-1 more-info box">
+                        <header><h1>Más información</h1></header>
+                        <script id="more-info-template" type="text/x-jQuery-tmpl">
+                            <ul>
+                                <li><h5>Aficiones</h5></li>
+                                <li><p>${hobbies}</p></li>
+                                <li><h5>Habla sobre ti</h5></li>
+                                <li><p>${description}</p></li>
+                                <li><a data-modify="more-info">Modificar</a></li>
+                            </ul>
+                        </script>
+                    </section>
+
+                    <section class="col-lg-4 col-lg-offset-2 contract-info box">
+                            <header><h1>Tipo de contrato del servicio</h1></header>
+                            <script id="contract-info-template" type="text/x-jQuery-tmpl">
+                                <ul>
+                                    <li><h5>Estado servicio</h5></li>
+                                    <li><p>${billing_status}</p></li>
+                                    <li><h5>Fecha fin de servicio</h5></li>
+                                    <li><p>${enrollment_ending}</p></li>
+                                    <li><h5>Tienes acceso a</h5></li>
+                                    <li><p>ReadyToCharge y ReadyToGo</p></li>
+                                </ul>
+                            </script>
+                    </section>
+
+                </div>
+
+                <div class="row">
+                    <section class="col-lg-10 col-lg-offset-1 friends-info box">
+                            <header><h1>Amigos</h1></header>
+                             <ul>
+                              <p>Servicio no disponible</p>
+                            </ul>
+                    </section>
+                    <section class="col-lg-10 col-lg-offset-1 comments-info box">
+                            <header><h1>Comentarios sobre ti</h1></header>
+                             <ul>
+                              <p>Servicio no disponible</p>
+                            </ul>
+                    </section>
+                    <section class="col-lg-10 col-lg-offset-1 routes-info box">
+                            <header><h1>Rutas realizadas</h1></header>
+                             <ul>
+                              <p>Servicio no disponible</p>
+                            </ul>
+                    </section>
+                </div>
+            </section>
+
+      <div class="push"></div>
+
+    </div> <!--wrap-->
+
+  <!--footer-->
+    <footer>
+        <section class="container">
+          <header><h5>ReadyToCharge&Go</h5></header>
+          <ul>
+            <li><a>Contacto</a></li> |
+            <li><a>Términos de uso</a></li> |
+            <li><a>Protección de datos</a></li> |
+            <li><a href="http://es.linkedin.com/pub/aitor-palacios-zabala/69/bb8/ab1" target="_blank"><img src="static/img/social_linked_in.png"></a></li>
+            <li><a href="http://github.com/apalzab" target="_blank"><img src="static/img/social_github.png"></a></li>
+          </ul>
+        </section>
+    </footer>
+
+
+    <!-- modal basic-info -->
+  <div class="modal profile basic fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Modificar información básica</h1>
+        </div>
+          <form class="modal-body">
+           <script id="basic-info-modal-template" type="text/x-jQuery-tmpl">
+                        <ul>
+                            <li><h5>Nombre completo</h5></li>
+                            <li><input type="text" class="form-control" placeholder="${name} ${lastName}"></li>
+                            <li><h5>ID usuario</h5></li>
+                            <li><p>${id}</p></li>
+                            <li><h5>Sexo</h5></li>
+                            <li><select class="form-control" value="${sex}"><option value="Hombre">Hombre</option><option value="Mujer">Mujer</option></select></li>
+                            <li><h5>Edad</h5></li>
+                            <li><input type="number" min="18" class="form-control" placeholder="${age}" value="${age}"></li>
+                            <li><h5>Dirección de correo alternativa</h5></li>
+                            <li><input type="text" class="form-control" placeholder="${alternative_mail}"></li>
+                        </ul>
+            </script>
+          </form>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button id="basic-change" type="button submit" class="btn btn-blue">Guardar cambios</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+    <!-- modal more-info -->
+  <div class="modal profile more fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Añadir más información</h1>
+        </div>
+          <form class="modal-body">
+           <script id="more-info-modal-template" type="text/x-jQuery-tmpl">
+                        <ul>
+                            <li><h5>Aficiones</h5></li>
+                            <li><textarea class="form-control" placeholder="${hobbies}"></textarea></li>
+                            <li><h5>Habla sobre ti</h5></li>
+                            <li><textarea class="form-control" placeholder="${hobbies}"></textarea></li>
+                        </ul>
+            </script>
+          </form>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button id="login-modal" type="button submit" class="btn btn-blue">Guardar cambios</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+   <!-- modal public-info -->
+  <div class="modal profile public fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title">Modificar información pública</h1>
+        </div>
+          <form class="modal-body">
+           <script id="more-public-modal-template" type="text/x-jQuery-tmpl">
+                        <ul>
+                                {{if share_basic_info == 'true'}}
+                                    <li><h5>Información básica <select value="Público"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                    {{else}}
+                                        <li><h5>Información básica <select value="Privado"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                {{/if}}
+                                {{if share_more_info == 'true'}}
+                                    <li><h5>Más información <select value="Público"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                    {{else}}
+                                        <li><h5>Más información<select value="Privado"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                {{/if}}
+                                {{if share_comments == 'true'}}
+                                    <li><h5>Comentarios sobre ti<select value="Público"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                    {{else}}
+                                        <li><h5>Comentarios sobre ti<select value="Privado"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                {{/if}}
+                                {{if share_friends == 'true'}}
+                                    <li><h5>Amigos<select value="Público"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                    {{else}}
+                                        <li><h5>Amigos<select value="Privado"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                {{/if}}
+                                {{if share_routes == 'true'}}
+                                    <li><h5>Información de rutas realizadas<select value="Público"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                    {{else}}
+                                        <li><h5>Información de rutas realizadas<select value="Privado"><option value="Público">Público</option><option value="Privado">Privado</option></select></h5></li>
+                                {{/if}}
+                            </ul>
+            </script>
+          </form>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button id="login-modal" type="button submit" class="btn btn-blue">Guardar cambios</button>
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+    <!--JQuery dependencies-->
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--Bootstrap dependencies-->
+
+    <script src="static/bootstrap-3/js/transition.js"></script>
+    <script src="static/bootstrap-3/js/modal.js"></script>
+    <script src="static/bootstrap-3/dist/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.tmpl.js"></script>
+    <script src="static/js/profile.js"></script>
+
+    <script src="static/js/jquery.md5.js"></script>
+    <script src="static/js/login.js"></script>
+    <script src="static/js/cookie.js"></script>
+    <!--[if lt IE 9]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><style type="text/css"></style>
+</body>
+</html>

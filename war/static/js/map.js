@@ -12,8 +12,11 @@ function initialize() {
   };
 
   var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
+  // var transitLayer = new google.maps.TransitLayer();
+  // var bikeLayer = new google.maps.BicyclingLayer();
   var trafficLayer = new google.maps.TrafficLayer();
+  // bikeLayer.setMap(map);
+  // transitLayer.setMap(map);
   trafficLayer.setMap(map);
 
   var socket = new google.maps.MarkerImage('static/img/charge-map.png');
@@ -285,6 +288,7 @@ function locateUser() {
     var alternative_routes = $(this).closest('div').find('input[type="checkbox"]:eq(0)').is(':checked');
     var avoidTolls = $(this).closest('div').find('input[type="checkbox"]:eq(1)').is(':checked');
     calculateRoute($(this).data('latitude'), $(this).data('longitude'), travel_mode, alternative_routes, avoidTolls);
+    $('html,body').animate({scrollTop: $('#map_canvas').position().top},'slow');
     });
 
     var directionsService = new google.maps.DirectionsService();

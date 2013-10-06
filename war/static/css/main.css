@@ -20,7 +20,7 @@ footer {
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
 footer {
   margin-left: -20px;
   margin-right: -20px;
@@ -28,13 +28,25 @@ footer {
   padding-right: 20px;
 }
 
+}*/
+
+/*buttons*/
+
+.btn-blue {
+  background-color: #77c8cf;
+  border-color: #77c8cf;
+  opacity: .8;
+  color: white;
+}
+
+.btn-blue:hover {
+  opacity: 1;
 }
 
 /* nav bar */
 
 .navbar {
-  background-color: #333;
-  /*border-color: #128f76;*/
+  background-color: #333;  
 }
 
 .dropdown.open {
@@ -54,18 +66,20 @@ footer a {
   transition: color .3s ease-in-out;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #77c8cf;
+background-color: transparent;
+}
 
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  color:#18bc9c;
-  background-color: #333;
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+color: #77c8cf;
+background-color: transparent;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
 color: #ffffff;
 cursor: pointer;
-background-color: #18bc9c;
+background-color: #77c8cf;
 }
 
 
@@ -99,22 +113,27 @@ background-color: #18bc9c;
 }
 
 .header ul li:hover {
-  color: #18bc9c;
+  color: #77c8cf;
 }
 
 .top {
-  padding: 4em 0 10em;
+  padding: 4em 0 5em;
   background-color: #fff;
   border-top: 1px solid rgba(255,255,255,0.1);
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .top img {
-margin-top: 4em;
+  margin: 0 auto;
+  padding: 3em 0em 3em;
 }
 
 .top p {
   font-size: 1.4em;
+}
+
+.top article {
+  text-align: center;
 }
 
 .top article:first-child {
@@ -172,7 +191,7 @@ float: right;
 }
 
 .advantages {
-  background-color: #F2F2F2;
+  background-color: #fff;
   border-top: 1px solid rgba(255,255,255,0.1);
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
@@ -187,12 +206,20 @@ float: right;
 }
 
 .sign-up {
+  background-color: #F2F2F2;
   padding-bottom: 5em;
 }
 
 .sign-up .container > header{
   text-align: center;
   font-size: 2.3em;
+}
+
+.sign-up article {
+  background-color: #fff;
+  border: .3em dotted #333;
+margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 .sign-up article header {
@@ -211,7 +238,13 @@ float: right;
 
 footer {
   background-color: #333;
-  color: white;
+  color: #fff;
+  /*opacity: .9;*/
+  text-align: center;
+}
+
+footer header {
+  padding: 1em;
 }
 
 footer a {
@@ -220,23 +253,29 @@ footer a {
 
 footer a:hover {
   text-decoration: none;
-  color: #18bc9c;
+  color: #77c8cf;
 }
 
 footer ul li {
+  display: inline;
   list-style-type: none;
 }
 
-@font-face {
-  font-family: 'ChunkFive';
-  src: url('fonts/ChunkFive/Chunkfive.otf');
-}
 
 @font-face {
   font-family: 'OpenSans-Light';
   src: url("fonts/Open_Sans/OpenSans-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url("fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
+}
+
+.bold {
+  font-family: 'OpenSans-Bold';
 }
 
 html,
@@ -326,6 +365,7 @@ input[type="password"] {
   margin: 0 auto;
   border-radius: 50%;
   padding: 2em;
+  border: 4px dashed #fff;
 }
 
 .init article img:hover {
@@ -343,19 +383,35 @@ input[type="password"] {
   -moz-transition: border .3s;
   transition: border .3s;
   background-color: #333;*/
+  /*opacity: .6;*/
   border: 4px dashed #333;
   
 }
 
-.test {
-  border-radius: 50%;
-  border: 4px dashed black;
-}
-
 /* ready-to-charge.html */
 
-.ready-to-charge.container {
-padding-top: 6em;
+.ready-to-charge {
+  padding-top: 6em;
+  width: 35%;
+}
+
+.ready-to-charge ol {
+  list-style: none;
+}
+
+.ready-to-charge header {
+  text-align: center;
+  font-size: 2em;
+}
+
+.ready-to-charge ol li:last-child {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.ready-to-charge .btn-blue {
+  margin-top: 2em;
+  padding: 1.5em;
 }
 
 .timestable table tr td {
@@ -366,6 +422,10 @@ padding-top: 6em;
   height: 40em;
   width: 100%;
   margin-bottom: 4em;
+}
+
+.directionsPanel {
+  padding-bottom: 3em;
 }
 
 /*bookings.html*/
@@ -396,3 +456,126 @@ padding-top: 6em;
   padding-top: 6em;
   text-align: center;
 }
+
+
+/* profile.html */
+
+.wrap.profile {
+  background: #E5E5E5;
+}
+
+.profile-header {
+  padding-top: 8em;
+  padding-bottom: 1em;
+  text-align: center;
+  }
+
+.profile-header header h1{
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 2.5em;
+  opacity: .8;
+}
+
+.profile-header img {
+  max-width: 15%;
+  border: 4px solid #fff;
+}
+
+.box {
+  background: #fff;
+  border-top: 5px solid #fff;
+  margin-bottom: 3em;
+  border-top-color: #77c8cf;
+}
+
+.friends-info  {
+  text-align: center;
+}
+
+.comments-info {
+  text-align: center;
+}
+
+.routes-info  {
+  text-align: center;
+}
+  
+.profile .box header h1 {
+  font-size: 1.9em;
+}
+
+.profile .box ul li {
+  list-style-type: none;
+}
+
+.profile .box ul li h5 {
+  font-family: 'OpenSans-Bold';
+}
+
+.profile .box ul li a {
+float: right;
+padding-bottom: 1em;
+}
+
+.profile .box p {
+  font-weight: bold;
+}
+
+.profile .box a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal.profile .modal-header {
+  background-color: #77c8cf;
+  color: white;
+}
+
+.modal.profile .modal-body ul li h5 {
+  font-family: 'OpenSans-Bold';
+}
+
+.modal.public select {
+  float: right;
+}
+
+
+/*Tables properties*/
+.table > thead > tr > td.warning, .table > tbody > tr > td.warning, .table > tfoot > tr > td.warning, .table > thead > tr > th.warning, .table > tbody > tr > th.warning, .table > tfoot > tr > th.warning, .table > thead > tr.warning > td, .table > tbody > tr.warning > td, .table > tfoot > tr.warning > td, .table > thead > tr.warning > th, .table > tbody > tr.warning > th, .table > tfoot > tr.warning > th {
+background-color: #fcf8e3;
+border-color: #fbeed5;
+color: black;
+}
+
+.table > thead > tr > td.success, .table > tbody > tr > td.success, .table > tfoot > tr > td.success, .table > thead > tr > th.success, .table > tbody > tr > th.success, .table > tfoot > tr > th.success, .table > thead > tr.success > td, .table > tbody > tr.success > td, .table > tfoot > tr.success > td, .table > thead > tr.success > th, .table > tbody > tr.success > th, .table > tfoot > tr.success > th {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: black;
+}
+
+.table > thead > tr > td.danger, .table > tbody > tr > td.danger, .table > tfoot > tr > td.danger, .table > thead > tr > th.danger, .table > tbody > tr > th.danger, .table > tfoot > tr > th.danger, .table > thead > tr.danger > td, .table > tbody > tr.danger > td, .table > tfoot > tr.danger > td, .table > thead > tr.danger > th, .table > tbody > tr.danger > th, .table > tfoot > tr.danger > th {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: black;
+}
+
+@media (max-width: 640px) {
+
+  .top {
+    padding: 0; 
+  }
+
+  .top img {
+    /*padding-top: 3em;
+    margin: 0 auto;
+    padding-bottom: 3em;*/
+  }
+}
+
+
+.form-control:focus {
+border-color: #77c8cf;
+
+}
+
